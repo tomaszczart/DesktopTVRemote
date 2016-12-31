@@ -1,5 +1,5 @@
-# DesktopTVRemote <img src="icons/windows/icon128.png" width="60">
-This application allows you to control your TV by your computer.
+# <img src="icons/windows/icon128.png" width="60"> DesktopTVRemote 
+> This application allows you to control your TV by your computer.
 
 # Dev
 
