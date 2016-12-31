@@ -1,0 +1,1330 @@
+/* STYLING SCROLLBARS */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, .26);
+}
+
+html{
+    background-color: #693d84;
+}
+
+body {
+    background-color: #693d84;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ____________________________________________ */
+/* Remote style */
+
+nav{
+    height: 48px;
+    width: 100%;
+}
+
+#nav-box {
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .54);
+    height: 48px;
+    overflow: hidden;
+    -webkit-user-select: none;
+    position: relative;
+    display: flex;
+    animation-duration: 236ms;
+    animation-timing-function: ease-in-out;
+    animation-name: fadein-nav; /* ON LOAD ANIMATION */
+}
+
+@keyframes fadein-nav {
+    from {
+        top: -48px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+#menus{
+    flex: 1;
+}
+
+#menu, #menu-editing{
+    display: flex;
+    height: 48px;
+    background-color: #fff;
+}
+
+#trash-container{
+    flex: 1;
+    text-align: center;
+}
+
+ #menu.ng-hide-remove, #menu-editing.ng-hide-remove{
+    transition: opacity 250ms ease-in-out;
+}
+
+#menu.ng-hide{
+    opacity: 0;
+}
+
+#menu-editing.ng-hide{
+    opacity: 0;
+}
+
+#remove-button-area {
+    display: inline-block;
+    border: 1px dashed #6a1b9a;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 24px;
+    line-height: 24px;
+    font-weight: 500;
+    height: 24px;
+    margin: 7px 0;
+    transition: color 150ms ease-in-out, border 200ms ease-in-out, background-color 200ms ease-in-out;
+    width: 50%;
+    overflow: hidden;
+    background: #F5F5F5;
+}
+
+#remove-button-area[ng-drop].drag-enter {
+    border: 1px solid transparent;
+    color: transparent;
+    background: #f44336 no-repeat center url("../img/icons/ic_delete_black_24px.svg");
+}
+
+.editing-label{
+    background: #fff;
+    position: absolute;
+    float: right;
+    right: 0;
+    box-shadow: -25px 0 25px rgba(255,255,255,.9);
+}
+
+.editing-label span{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    margin: 9px;
+    display: inline-block;
+}
+
+.editing-label #editingSwitch{
+    float: right;
+    margin: 8px 0;
+}
+
+#remote-box{
+    flex: 1;
+    position: relative;
+}
+
+#remote {
+    padding: 4px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+    animation-duration: 350ms;
+    animation-timing-function: ease-in-out;
+    animation-name: fadein-remote; /* ON LOAD ANIMATION */
+}
+
+@keyframes fadein-remote {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50%) scale(.85);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+}
+
+.row {
+    display: inline-flex;
+    width: 100%;
+    margin: 4px 0;
+    transition: 200ms all ease-in-out;
+}
+
+.row.ng-enter{
+    opacity: 0;
+    transform: scale(.5);
+}
+
+.row.ng-enter-active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.row.ng-leave{
+    opacity: 1;
+    transform: scale(1);
+}
+
+.row.ng-leave-active{
+    opacity: 0;
+    transform: scale(.5);
+}
+
+#remote-is-empty{
+    color: #fbfafc;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    -webkit-user-select: none;
+    animation-duration: 250ms;
+    animation-timing-function: ease-in-out;
+    animation-name: fadein-emptyinfo; /* ON LOAD ANIMATION */
+}
+
+@keyframes fadein-emptyinfo {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-50%) scale(.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%) scale(1);
+    }
+}
+
+#remote-is-empty md-icon{
+    height: 90px;
+    width: 90px;
+}
+
+#remote-is-empty p{
+    margin: 4px 0;
+}
+
+#remote-is-empty .md-subhead{
+    color: #E0E0E0;
+    outline: none;
+    cursor: pointer;
+}
+
+#remote-is-empty.ng-enter{
+    transition: 200ms all ease-in-out;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) scale(.8);
+}
+
+#remote-is-empty.ng-enter-active{
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+#remote-is-empty.ng-leave{
+    transition: 150ms all ease-in-out;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+}
+
+#remote-is-empty.ng-leave-active{
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%) scale(.8);
+}
+
+button-box {
+    float: left;
+    position: relative;
+    min-height: 32px;
+    min-width: 32px;
+    margin: 0 4px;
+    border-radius: 4px;
+    background: #5b3473;
+}
+
+remote-button{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+.remote-button {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    height: 100%;
+    width: 100%;
+    min-height: 32px;
+    min-width: 32px;
+    z-index: 0;
+    /* LINE BELOW MAKES BUTTON TO GO BACK TO ITS POSITION AFTER DRAGGING */
+    transition: transform 200ms ease-in-out, z-index 200ms;
+    overflow: hidden;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    background-color: #0475ec;
+    /*!* MOVE BACK OVER OTHER TILES *!*/
+    position: absolute;
+}
+
+remote-button.ng-enter{
+    transition: 200ms ease-in-out all;
+    transform: scale(.9);
+}
+
+/* The finishing CSS styles for the enter animation */
+remote-button.ng-enter-active {
+    transform: scale(1);
+}
+
+.remote-button .shortcut {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 4px;
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+    margin-bottom: 0;
+    outline: none;
+    text-align: center;
+    color: rgba(0, 0, 0, .76);
+    font-weight: bold;
+}
+
+.remote-button .shortcut.ng-enter{
+    transition: 250ms all ease-in-out;
+    opacity: 0;
+    margin-bottom: -16px;
+}
+
+.remote-button .shortcut.ng-enter-active{
+    opacity: 1;
+    margin-bottom: 0;
+}
+
+.remote-button .shortcut.ng-leave {
+    transition: 120ms all ease-in-out;
+    opacity: 1;
+    margin-bottom: 0;
+}
+.remote-button .shortcut.ng-leave-active {
+    opacity: 0;
+    margin-bottom: -16px;
+}
+
+/* When editing */
+.remote-button .editing{
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 4px;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    line-height: 12px;
+    height: 12px;
+    outline: none;
+    text-align: center;
+    color: rgba(0, 0, 0, .76);
+    font-weight: bold;
+}
+
+.remote-button .editing:hover, .remote-button .shortcut.editing-shortcut:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.remote-button .editing.ng-enter{
+    transition: 250ms opacity ease-in-out;
+    opacity: 0;
+}
+.remote-button .editing.ng-enter-active{
+    opacity: 1;
+}
+.remote-button .editing.ng-leave {
+    transition: 120ms opacity ease-in-out;
+    opacity: 1;
+}
+.remote-button .editing.ng-leave-active {
+    opacity: 0;
+}
+
+.remote-button .info {
+    position: absolute;
+    height: 12px;
+    right: 4px;
+    left: 4px;
+    top: 4px;
+    z-index: 2;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.remote-button .info .dot {
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0,.56);
+    margin: 2px;
+    float: right;
+}
+
+.remote-button .info .dot:nth-child(even){
+    transition: 309ms transform ease-in-out;
+}
+
+.remote-button .info .dot:nth-child(odd){
+    transition: 190ms transform ease-in-out;
+}
+
+.remote-button .info:hover .dot{
+    transform: scale(1.35);
+}
+
+.remote-button .button-icon {
+    transition: z-index 250ms;
+    align-items: center;
+    display: flex;
+    flex: 1;
+    align-content: center;
+    justify-content: center;
+    background: none no-repeat center;
+    background-size: 50%;
+    overflow: hidden;
+    opacity: .56;
+}
+
+/* When dragging a button */
+[ng-drag].dragging {
+    opacity: .75;
+    transition: transform 50ms ease-in-out;
+}
+button-box[ng-drop].drag-enter {
+    background-color: #472f5f;
+}
+
+/* IF THERE IS NO IMAGE SET FIRST LETTER OF KEY FUNCTION AS AN ICON */
+.first-letter {
+    color: #000;
+    font-size: 50%;
+    margin: 0;
+}
+
+/* NUMERIC KEYS (ZERO IS 1 ETC.) */
+.button-0, .button-1, .button-2, .button-3, .button-4, .button-5, .button-6, .button-7, .button-8, .button-9 {
+    background-color: #03a9f4;
+}
+
+/* OK KEY */
+.button-enter {
+    background-color: #ae8569;
+}
+
+.button-enter .button-icon {
+    background-image: url('../img/remote-icons/ic_enter_48px.svg');
+}
+
+.button-enter .first-letter {
+    display: none;
+}
+
+/* MUTE KEY */
+.button-mute {
+    background-color: #f2c311;
+}
+
+.button-mute .button-icon {
+    background-image: url('../img/remote-icons/ic_mute_48px.svg');
+}
+
+.button-mute .first-letter {
+    display: none;
+}
+
+/* VOLUME CONTROL KEYS */
+.button-volume_up, .button-volume_down {
+    background-color: #0277bd;
+}
+
+/* VOLUME UP */
+.button-volume_up .button-icon {
+    background-image: url('../img/remote-icons/ic_volume_up_24px.svg');
+}
+
+.button-volume_up .first-letter {
+    display: none;
+}
+
+/* VOLUME DOWN */
+.button-volume_down .button-icon {
+    background-image: url('../img/remote-icons/ic_volume_down_24px.svg');
+}
+
+.button-volume_down .first-letter {
+    display: none;
+}
+
+/* CHANNEL CONTROL KEYS */
+.button-channel_down, .button-channel_up {
+    background-color: #9eb235;
+}
+
+/* CHANNEL UP */
+.button-channel_up .button-icon {
+    background-image: url('../img/remote-icons/ic_arrow_upward_24px.svg');
+}
+
+.button-channel_up .first-letter {
+    display: none;
+}
+
+/* CHANNEL DOWN */
+.button-channel_down .button-icon {
+    background-image: url('../img/remote-icons/ic_arrow_downward_24px.svg');
+}
+
+.button-channel_down .first-letter {
+    display: none;
+}
+
+/* POWER KEY */
+.button-power, .button-power_on, .button-power_off {
+    background-color: #f44336;
+}
+
+.button-power .button-icon, .button-power_on .button-icon , .button-power_off .button-icon  {
+    background-image: url('../img/remote-icons/ic_power_48px.svg');
+}
+
+.button-power .first-letter, .button-power_on .first-letter, .button-power_off .first-letter {
+    display: none;
+}
+
+/* PAUSE KEY */
+.button-pause{
+    background-color: #FF9800;
+}
+
+.button-pause .button-icon{
+    background-image: url('../img/remote-icons/ic_pause_black_24px.svg');
+}
+
+.button-pause .first-letter{
+    display: none;
+}
+
+/* PLAY KEY */
+.button-play{
+    background-color: #8BC34A;
+}
+
+.button-play .button-icon{
+    background-image: url('../img/remote-icons/ic_play_arrow_black_24px.svg');
+}
+
+.button-play .first-letter{
+    display: none;
+}
+
+/* STOP KEY */
+.button-stop{
+    background-color: #03A9F4;
+}
+
+.button-stop .button-icon{
+    background-image: url('../img/remote-icons/ic_stop_black_24px.svg');
+}
+
+.button-stop .first-letter{
+    display: none;
+}
+
+/* NAVIGATE KEYS */
+.button-navigate_up, .button-navigate_down, .button-navigate_left, .button-navigate_right {
+    background-color: #bcaaa4;
+}
+
+/* NAVIGATE UP */
+.button-navigate_up .button-icon {
+    background-image: url('../img/remote-icons/ic_keyboard_arrow_up_48px.svg');
+}
+
+.button-navigate_up .first-letter {
+    display: none;
+}
+
+/* NAVIGATE DOWN */
+.button-navigate_down .button-icon {
+    background-image: url('../img/remote-icons/ic_keyboard_arrow_down_48px.svg');
+}
+
+.button-navigate_down .first-letter {
+    display: none;
+}
+
+/* NAVIGATE LEFT */
+.button-navigate_left .button-icon {
+    background-image: url('../img/remote-icons/ic_keyboard_arrow_left_48px.svg');
+}
+
+.button-navigate_left .first-letter {
+    display: none;
+}
+
+/* NAVIGATE RIGHT */
+.button-navigate_right .button-icon {
+    background-image: url('../img/remote-icons/ic_keyboard_arrow_right_48px.svg');
+}
+
+.button-navigate_right .first-letter {
+    display: none;
+}
+
+/* EXIT KEY */
+.button-exit {
+    background-color: #45b29d;
+}
+
+.button-exit .button-icon {
+    background-image: url('../img/remote-icons/ic_exit_48px.svg');
+}
+
+.button-exit .first-letter {
+    display: none;
+}
+
+/* INPUT/SOURCE KEY */
+.button-source, .button-input {
+    background-color: #224687;
+}
+
+.button-source .button-icon, .button-input .button-icon {
+    background-image: url('../img/remote-icons/ic_input_48px.svg');
+}
+
+.button-source .first-letter, .button-input .first-letter {
+    display: none;
+}
+
+/* INFO KEY */
+.button-info {
+    background-color: #ff9334;
+}
+
+.button-info .button-icon {
+    background-image: url('../img/remote-icons/ic_info_outline_48px.svg');
+}
+
+.button-info .first-letter {
+    display: none;
+}
+
+/* ____________________________________________ */
+/* Connection Manager */
+.connection-manager {
+    overflow: hidden;
+}
+
+.connection-manager md-divider {
+    margin: 8px 0;
+}
+
+.connection-manager md-list-item md-icon {
+    opacity: .54;
+}
+
+/* CONNECTED DEVICES LIST */
+#clients-list {
+    min-height: 48px;
+    padding: 0;
+    margin-top: 8px;
+}
+
+#clients-list md-list-item {
+    padding: 0 4px;
+    transition: 200ms all ease-in-out;
+}
+
+#clients-list md-list-item.ng-enter{
+    opacity: 0;
+    transform: scale(.8);
+}
+
+#clients-list md-list-item.ng-enter-active{
+    opacity: 1;
+    transform: scale(1);
+}
+
+#clients-list md-list-item.ng-leave{
+    opacity: 1;
+    transform: scale(1);
+}
+
+#clients-list md-list-item.ng-leave-active{
+    opacity: 0;
+    transform: scale(.8);
+}
+
+
+.client-icon {
+    margin: 8px 16px 8px 0 !important;
+}
+
+#connection-data {
+    display: flex;
+    margin: 0 8px;
+}
+
+#server-info {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    width: calc(100% - 117px);
+    max-width: 315px;
+}
+
+#server-info span {
+    padding: 0;
+    min-height: 15px;
+    font-size: 15px;
+    flex: 1;
+}
+
+#password {
+    border: 0;
+    font-weight: bold;
+    outline: none;
+    text-align: center;
+    border-bottom: 2px solid #E0E0E0;
+    transition: border-bottom 200ms ease-in-out;
+}
+
+#password:focus {
+    border-bottom: 2px solid #2196f3;
+}
+
+#qrcode {
+    width: 117px;
+    height: 117px;
+    -webkit-user-select: none;
+}
+
+/* Box with information how to connect device */
+
+.connection-manager .info {
+    padding: 4px;
+    margin: 8px;
+    border-radius: 4px;
+    background-color: #9CCC65;
+    border: 1px solid #7CB342;
+    max-width: 400px;
+    display: flex;
+}
+
+.connection-manager .info span{
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.connection-manager .info md-icon{
+    opacity: .54;
+    margin-right: 8px;
+}
+
+/* No devices connected */
+#no-devices {
+    text-align: center;
+    font-size: 13px;
+    line-height: 14px;
+    padding: 16px 0;
+    position: absolute;
+    width: calc(100% - 48px);
+}
+
+/* ____________________________________________ */
+
+/* Shortcut Creator */
+
+.shortcut-creator{
+    min-width: 480px;
+}
+
+.shortcut-creator .md-dialog-content{
+    padding-bottom: 16px;
+}
+
+#edit-box{
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    margin-top: 24px;
+    text-align: center;
+    height: 40px;
+    overflow: hidden;
+}
+
+.shortcut-creator #shortcut{
+    -webkit-user-select: none;
+    height: 40px;
+}
+
+.shortcut-creator #no-shortcut{
+    line-height: 40px;
+    font-size: 14px;
+    height: 40px;
+}
+
+.shortcut-creator #no-shortcut.ng-hide-add, #no-shortcut.ng-hide-remove {
+    transition: opacity 200ms ease-in-out;
+}
+
+.shortcut-creator #no-shortcut.ng-hide {
+    opacity: 0;
+}
+
+.shortcut-creator .key-group{
+    position: relative;
+    display: inline-block;
+}
+
+#listening-in-progress{
+    position: absolute;
+    background: rgba(255, 255, 255, 0.87);
+    height: 40px;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#listening-in-progress.ng-hide-add, #listening-in-progress.ng-hide-remove {
+    transition: all 200ms ease-in-out;
+}
+
+#listening-in-progress.ng-hide {
+    opacity: 0;
+}
+
+#listening-in-progress md-progress-circular{
+    margin-top: 5px;
+    display: inline-block;
+}
+
+.shortcut-creator .key{
+    color: rgba(0,0,0,.87);
+    background: #F5F5F5;
+    color: #424242;
+    font-weight: 500;
+    border: 1px solid #E0E0E0;
+    padding: 11px;
+    font-size: 16px;
+    line-height: 16px;
+    border-radius: 4px;
+    margin: 0 8px;
+    min-width: 32px;
+    text-align: center;
+    float: left;
+}
+
+.shortcut-creator .plus{
+    float: left;
+    padding: 12px 4px;
+    line-height: 16px;
+    font-size: 16px;
+}
+
+#removeShortcutButton{
+    margin: 0 -8px;
+    float: left;
+}
+
+#removeShortcutButton md-icon{
+    opacity: .86;
+}
+
+/* Message under progress indicator while listening for shortcut */
+.shortcut-creator .info {
+    overflow: hidden;
+    height: 40px;
+    font-size: 12px;
+    width: 100%;
+    text-align: center;
+}
+
+.shortcut-creator .info span{
+    width: 100%;
+    float: left;
+    margin-top: 4px;
+    height: 16px;
+}
+
+.shortcut-creator .info span.ng-hide-add, .shortcut-creator .info span.ng-hide-remove {
+    transition: all 200ms ease-in-out;
+}
+
+.shortcut-creator .info span.ng-hide {
+    opacity: 0;
+    margin-bottom: -16px;
+}
+
+.shortcut-creator .info span b{
+    color: #B71C1C;
+}
+
+.shortcut-creator .info span b.stop{
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-left: 4px;
+}
+
+/* Shortcut editor warning box */
+.shortcut-creator .warning{
+    padding: 8px;
+    border-radius: 4px;
+    background-color: #FFEB3B;
+    border: 1px solid #FDD835;
+    max-width: 480px;
+    margin: auto;
+    display: flex;
+}
+
+.shortcut-creator .warning span{
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+.shortcut-creator .warning md-icon{
+   opacity: .54;
+    margin-right: 8px;
+}
+
+.shortcut-creator .md-button{
+    transition: background-color 250ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+.shortcut-creator .md-button.hide-bt{
+     opacity: 0;
+     cursor: default;
+    background-color: #fff;
+ }
+
+.shortcut-creator .md-button.show-bt{
+    opacity: 1;
+    cursor: pointer;
+}
+
+
+/* ____________________________________________ */
+
+/* Universal Styles */
+
+.icon-black {
+    opacity: .84;
+}
+
+.subtitle {
+    font-size: 15px;
+    line-height: 15px;
+    margin: 4px 0 8px 8px;
+}
+
+/* ____________________________________________ */
+
+/* Remote Creator */
+
+.remote-creator{
+    background-color: #F5F5F5;
+}
+
+.remote-creator md-toolbar{
+    background-color: #5b3473;
+}
+
+.remote-creator form{
+    height: 100%;
+}
+
+#search-box{
+    background-color: #693d84;
+    border-bottom: 1px solid #5b3473;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .54);
+    padding: 0 12px 12px 12px;
+}
+
+#search-box md-radio-group{
+    height: 40px;
+    color: #fbfafc;
+    display: flex;
+    margin-bottom: 4px;
+}
+#search-box md-radio-group md-progress-circular {
+    margin: 5px auto;
+}
+
+.remote-creator .md-dialog-content{
+    position: relative;
+    height: 100%;
+    overflow-x: hidden;
+    padding: 0 !important;
+}
+
+/* It makes windows resizing more fluid */
+.md-dialog-container {
+    height: 100% !important;
+}
+
+.remote-creator.md-dialog-fullscreen {
+    max-width: 100%;
+    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+/* selected buttons chips */
+
+#selected-buttons{
+    position: relative;
+}
+
+#selected-buttons-container {
+    color: #F3E5F5;
+    overflow: hidden;
+    position: relative;
+    height: 36px;
+    padding-top: 8px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid rgba(0,0,0,.24);
+    transition: height 250ms ease-in-out;
+}
+
+#selected-buttons-container.opened{
+   height: 132px !important;
+    overflow-y: scroll !important;
+}
+
+#show-all-selected-buttons{
+    background-color: #5f3b75;
+    height: 24px;
+    width: 74px;
+    padding: 2px;
+    border-radius: 14px;
+    border: 1px #502e65 solid;
+    position: absolute;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -14px;
+    outline: none;
+    overflow: hidden;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+#show-all-selected-buttons span{
+    flex: 1;
+    height: 24px;
+    line-height: 24px;
+    font-size: 14px;
+    margin-left: 4px;
+    text-align: center;
+    color: #F3E5F5;
+}
+
+#show-all-selected-buttons md-icon{
+    transition: transform 250ms ease-in-out;
+    opacity: .87;
+}
+
+#show-all-selected-buttons md-icon.opened{
+    transform: rotateZ(180deg);
+}
+
+.selected-button-chip {
+    color: #212121;
+    outline: none;
+    display: inline-block;
+    background: #E0E0E0;
+    border-radius: 16px;
+    height: 32px;
+    margin: 4px;
+    overflow: hidden;
+    -webkit-user-select: none;
+}
+
+.selected-button-chip.ng-enter{
+    transition: 200ms ease-in-out all;
+    transform: scale(.5);
+}
+
+.selected-button-chip.ng-enter-active{
+    transition: 200ms ease-in-out all;
+    transform: scale(1);
+}
+
+/* now the element will fade out before it is removed from the DOM */
+.selected-button-chip.ng-leave {
+    transition: 200ms ease-in-out all;
+    opacity:1;
+    transform: scale(1);
+}
+.selected-button-chip.ng-leave-active {
+    opacity:0;
+    transform: scale(0);
+}
+
+.selected-button-chip span{
+    display: inline-block;
+    height: 28px;
+    font-size: 14px;
+    line-height: 28px;
+    margin: 2px 2px 2px 8px;
+    float: left;
+}
+.icon-button-send {
+    outline: none;
+    height: 24px;
+    width: 24px;
+    margin: 4px 0 4px 2px;
+}
+.icon-button-add {
+    outline: none;
+    height: 24px;
+    width: 24px;
+    margin: 4px 0 4px 4px;
+}
+.icon-button-delete {
+    outline: none;
+    height: 28px;
+    width: 28px;
+    margin: 2px 2px 2px 0;
+}
+.icon-button-send svg, .icon-button-delete svg, .icon-button-add svg{
+    fill: #9E9E9E;
+}
+.icon-button-send:hover svg {
+    fill: #2196F3;
+}
+.icon-button-send:active svg {
+    fill: #1976D2;
+}
+.icon-button-delete:hover svg {
+    fill: #F44336;
+}
+.icon-button-delete:active svg {
+    fill: #B71C1C;
+}
+.icon-button-add:hover svg {
+    fill: #693d84;
+}
+.icon-button-add:active svg {
+    fill: #432754;
+}
+#no-buttons-selected {
+    text-align: center;
+    line-height: 43px;
+    position: absolute;
+    width: 100%;
+    z-index: 9999;
+}
+#no-buttons-selected.ng-enter{
+    transition: 200ms ease-in-out all;
+    opacity: 0;
+}
+#no-buttons-selected.ng-enter-active{
+    opacity: 1;
+}
+#no-buttons-selected.ng-leave {
+    transition: 150ms ease-in-out all;
+    opacity: 1;
+}
+#no-buttons-selected.ng-leave-active {
+    opacity: 0;
+}
+
+#no-buttons-selected span {
+    font-size: 14px;
+}
+#no-buttons-selected .md-icon-button{
+    margin: 0;
+}
+/* selected buttons chips END */
+
+md-radio-button{
+    margin-left: 8px;
+    outline: none;
+}
+
+#search-box md-radio-group md-radio-button{
+    flex-grow: 1;
+    margin: 0 4px;
+}
+
+#search-box md-radio-group md-radio-button .md-label{
+    line-height: 36px;
+    height: 36px;
+}
+
+.remote-creator #more-menu{
+    margin-bottom: 4px;
+}
+
+.remote-creator #more-devices-button{
+    color: #fbfafc;
+    margin: 0;
+}
+
+.remote-creator #remotes-loading-circle, .remote-creator #no-internet-connection, .remote-creator .no-remotes-found{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+/* Show/hide info animation */
+.remote-creator #remotes-loading-circle.ng-hide-remove, .remote-creator #no-internet-connection.ng-hide-remove, .remote-creator .no-remotes-found.ng-hide-remove {
+    transition: all 200ms ease-in-out;
+}
+
+.remote-creator #remotes-loading-circle.ng-hide, .remote-creator #no-internet-connection.ng-hide, .remote-creator .no-remotes-found.ng-hide {
+    opacity: 0;
+}
+
+.remote-creator #no-internet-connection span{
+    line-height: 24px;
+    margin-left: 8px;
+    font-size: 16px;
+}
+
+.remote-creator #action-bar-bottom{
+    height: 48px;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid #E0E0E0;
+    background-color: #EEEEEE;
+}
+
+.remote-creator #action-bar-bottom #pageCounter{
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+}
+
+.remote-creator #action-bar-bottom #pageCounter div.ng-hide-remove {
+    transition: all 200ms ease-in-out;
+}
+
+.remote-creator #action-bar-bottom #pageCounter div.ng-hide {
+    opacity: 0;
+}
+
+.remote-remotecreator{
+    position: absolute;
+    width: calc(100% - 48px);
+    margin: 24px !important;
+}
+
+.remote-remotecreator md-card-title{
+    padding: 16px 16px 12px;
+}
+
+/* select all buttons checkbox */
+.remote-remotecreator md-card-title md-checkbox{
+    margin: 8px 0 !important;
+}
+
+.remote-remotecreator md-card-title-text{
+    flex-direction: row !important;
+}
+
+/* remote model info */
+.remote-remotecreator .md-headline i{
+    font-size: 12px;
+    cursor: help;
+}
+
+/* NEXT REMOTE */
+.next .remote-remotecreator.ng-enter{
+    transition: 350ms ease-in-out all;
+    transform: translateX(100vw);
+}
+.next .remote-remotecreator.ng-enter-active{
+    transform: translateX(0);
+}
+.next .remote-remotecreator.ng-leave {
+    transition: 350ms ease-in-out all;
+    transform: translateX(0);
+}
+.next .remote-remotecreator.ng-leave-active {
+    transform: translateX(-100vw);
+}
+
+/*PREVIOUS REMOTE*/
+.previous .remote-remotecreator.ng-enter{
+    transition: 350ms ease-in-out all;
+    transform: translateX(-100vw);
+}
+.previous .remote-remotecreator.ng-enter-active{
+    transform: translateX(0);
+}
+.previous .remote-remotecreator.ng-leave{
+    transition: 350ms ease-in-out all;
+    transform: translateX(0);
+}
+.previous .remote-remotecreator.ng-leave-active{
+    transform: translateX(100vw);
+}
+
+.remote-creator .result-buttons{
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 4px;
+}
+
+.remote-creator .key{
+    margin: 4px;
+    padding: 4px 8px;
+    height: 32px;
+    float: left;
+    flex: auto;
+    line-height: 32px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid #E0E0E0;
+    border-radius: 2px;
+    background-color: #FAFAFA;
+    transition: 120ms background-color ease-in-out;
+}
+
+.remote-creator .key:hover{
+    background-color: #E0E0E0;
+}
+
+/* ____________________________________________ */
+
+/* About dialog */
+
+.about-dialog md-dialog-content{
+    padding: 16px;
+}
+
+.about-dialog b{
+    cursor: pointer;
+    outline: none;
+}
+
+.about-dialog b:active{
+    text-decoration: underline;
+}

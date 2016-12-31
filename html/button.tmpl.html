@@ -1,0 +1,24 @@
+<div md-ink-ripple="{{!editing}}"
+     style="cursor: {{editing ? 'move' : 'pointer'}}"
+     class="remote-button {{'button-' + codetype}}"
+     title="{{typeLabel}}"
+     ng-click="broadcastCode(buttonId)"
+     ng-drag-data="buttonId"
+     ng-center-anchor="true"
+     ng-drag="editing">
+
+    <div class="info" title="{{info}}"><div class="dot" ng-repeat="dot in dots track by $index"></div></div>
+
+    <div class="button-icon">
+        <p class="first-letter">{{typeLabel[0]}}</p>
+    </div>
+
+    <div ng-if="accelerator" ng-click="openShortcutCreator()(buttonId, $event, changeShortcut)" title="{{accelerator}}" class="shortcut {{editing ? 'editing-shortcut' : ''}}">
+        {{accelerator}}
+    </div>
+
+    <div ng-if="editing && !accelerator && addShortcut" ng-click="openShortcutCreator()(buttonId, $event, changeShortcut)" class="editing">
+        {{addShortcutLabel}}
+    </div>
+
+</div>

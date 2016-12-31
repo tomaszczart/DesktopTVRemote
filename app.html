@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Desktop TV Remote</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="./node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./node_modules/angular/angular.js"></script>
+    <script src="./node_modules/angular-aria/angular-aria.js"></script>
+    <script src="./node_modules/angular-animate/angular-animate.js"></script>
+    <script src="./node_modules/angular-material/angular-material.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/connectionManagerCtrl.js"></script>
+    <script src="./js/shortcutCreatorCtrl.js"></script>
+    <script src="./js/remoteCreatorCtrl.js"></script>
+    <script src="./node_modules/ng-draggable/ngDraggable.js"></script>
+</head>
+<body ng-app='DTVRApp' ng-controller='appCtrl' ng-cloak>
+    <nav>
+        <div id="nav-box">
+            <div id="menus">
+                <div ng-show="!editing" id="menu">
+                    <md-button ng-click="openConnectionManager($event)" class="md-accent">{{::i18n.__('ConnectionManager')}}</md-button>
+                    <md-button ng-click="openAboutDialog($event)" class="md-accent">{{::i18n.__('About')}}</md-button>
+                    <md-button ng-click="openUserDefaultBrowser('https://www.youtube.com/playlist?list=PL_vuzEti_80vLpVDa717Ggpyk22v-RJLz')" class="md-accent">{{::i18n.__('HelpCenter')}}</md-button>
+                    <md-button style="color: #4CAF50;" ng-click="openUserDefaultBrowser('https://www.facebook.com/DesktopTVRemote/')" class="md-accent">{{::i18n.__('GooglePlayApp')}}</md-button>
+                </div>
+                <div ng-show="editing" id="menu-editing">
+                    <md-button ng-click="openRemoteCreator($event)" class="md-accent">
+                        {{::i18n.__('AddButtons')}}
+                    </md-button>
+                    <div id="trash-container">
+                        <div id="remove-button-area" ng-drop="true" ng-drop-success="onDropCompleteRemove($data,$event)">{{::i18n.__('DropHereToRemove')}}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="editing-label">
+                <span md-colors="{color: 'accent'}">{{::i18n.__('EditingMode')}}</span>
+                <md-switch class="md-accent" ng-model="editing" aria-label="Editing Mode" id="editingSwitch"></md-switch>
+            </div>
+        </div>
+    </nav>
+    <section id="remote-box">
+        <div id="remote-is-empty" ng-if="checkRemoteIfNotEmpty()">
+            <div class="info">
+                <md-icon md-svg-src="img/icons/1f914.svg"></md-icon>
+                <p class="md-headline">{{::i18n.__('YourRemoteIsEmpty')}}</p>
+                <p class="md-subhead" ng-click="openUserDefaultBrowser('https://www.youtube.com/playlist?list=PL_vuzEti_80sPY4KrzY2CdJAHQAOt9zgE')">{{i18n.__('SeeHowToCreateIt')}}</p>
+            </div>
+        </div>
+        <div id="remote">
+            <div ng-if="!checkRemoteIfNotEmpty()" class="row" ng-repeat="row in mapping track by $index">
+                <button-box ng-repeat="button in row track by $index" ng-drop="true" ng-drop-success="onDropComplete($data,$event,$parent.$index,$index)" class="md-whiteframe-1dp">
+                        <remote-button ng-if="button" button-id="button" open-shortcut-creator="openShortcutCreator" editing="editing"></remote-button>
+                </button-box>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<md-dialog class="about-dialog">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{::i18n.__('About')}}</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="cancel()">
+                    <md-icon md-svg-src="img/icons/ic_close_white_24px.svg" aria-label="Close dialog"></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+        <md-dialog-content>
+
+            <p>Emoji art supplied by <b ng-click="openUserDefaultBrowser('http://emojione.com/')">EmojiOne</b>.</p>
+
+            <p>The content of infrared remotes database comes from <b ng-click="openUserDefaultBrowser('https://github.com/nibdev/otrta')">nibdev</b> on <b ng-click="openUserDefaultBrowser('https://opensource.org/licenses/MIT')">MIT License</b>.</p>
+
+        </md-dialog-content>
+
+    </form>
+</md-dialog>

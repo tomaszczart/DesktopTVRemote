@@ -1,0 +1,102 @@
+<md-dialog class="remote-creator" aria-label="{{::i18n.__('ConnectionManager')}}">
+    <form>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{::i18n.__('RemoteCreator')}}</h2>
+                <span flex></span>
+                <md-button aria-label="{{::i18n.__('Cancel')}}" ng-click="cancel($event)">{{::i18n.__('Cancel')}}</md-button>
+                <md-button aria-label="{{::i18n.__('Save')}}" ng-click="save($event)">{{::i18n.__('Save')}}</md-button>
+            </div>
+        </md-toolbar>
+
+        <header id="search-box">
+
+            <div id="selected-buttons">
+                <div ng-model="isAllButtonsContainerOpen" ng-init="isAllButtonsContainerOpen = false" id="selected-buttons-container" class="{{isAllButtonsContainerOpen ? 'opened' : ''}}">
+                    <div id="no-buttons-selected" ng-if="!selectedButtons.length">
+                        <span>{{::i18n.__('NoButtonsSelected')}}</span>
+                        <md-button ng-click="openUserDefaultBrowser('https://www.youtube.com/playlist?list=PL_vuzEti_80vLpVDa717Ggpyk22v-RJLz')" class="md-icon-button" aria-label="{{::i18n.__('Help')}}">
+                            <md-icon md-svg-icon="img/icons/ic_help_outline_white_24px.svg" />
+                            <md-tooltip md-direction="right">{{::i18n.__('Help')}}</md-tooltip>
+                        </md-button>
+                    </div>
+                    <div ng-repeat="button in selectedButtons" class="selected-button-chip">
+                        <span>
+                            <strong>{{i18n.__(button.codetype)}}</strong>
+                            <em>({{button.info}})</em>
+                        </span>
+                        <md-icon ng-click="broadcastCode(button.codedata)" class="icon-button-send" title="{{::i18n.__('CheckHowItWorks')}}" md-svg-src="img/icons/ic_settings_remote_black_24px.svg"></md-icon>
+                        <md-icon ng-click="removeFromSelected($index)" class="icon-button-delete" title="{{::i18n.__('Remove')}}" md-svg-src="img/icons/ic_cancel_black_24px.svg"></md-icon>
+                    </div>
+                </div>
+                <div md-ink-ripple ng-click="openSelectedButtonsContainer()" id="show-all-selected-buttons">
+                    <span>{{selectedButtons.length}}/{{availableSpace}}</span>
+                    <md-icon class="{{isAllButtonsContainerOpen ? 'opened' : ''}}" title="{{::i18n.__('More')}}" md-svg-src="img/icons/ic_keyboard_arrow_down_white_24px.svg"></md-icon>
+                </div>
+            </div>
+
+            <md-radio-group ng-model="selectedDevicetype" ng-init="selectedDevicetype = 'tv'">
+                <md-progress-circular ng-show="!devicetypes.length && !noInternetConnection" md-diameter="30px"></md-progress-circular>
+                <!-- if there is more then 4 devicetypes show menu, if there is 5 devicetypes show fifth one instead of one device in menu -->
+                <md-radio-button ng-repeat="device in devicetypes | limitTo: (devicetypes.length <= 5 ? 5 : 4)" ng-orderBy="device.name" ng-value="device.name" ng-click="selectedDevicetypeChange(device.name)" class="md-primary">{{::i18n.__("devicetype-" + device.name)}}</md-radio-button>
+                <md-menu ng-if="devicetypes.length > 5" id="more-menu">
+                    <md-button id="more-devices-button" class="md-primary" ng-click="$mdOpenMenu($event)">{{::i18n.__('MoreDevicetypes')}}</md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item ng-repeat="device in devicetypes | limitTo: (4 - devicetypes.length)" ng-orderBy="device.id">
+                            <md-radio-button ng-click="selectedDevicetypeChange(device.name)" ng-value="device.name" class="md-primary">{{::i18n.__("devicetype-" + device.name)}}</md-radio-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </md-radio-group>
+
+            <md-autocomplete md-selected-item="selectedVendor" md-search-text="searchText" md-selected-item-change="selectedVendorChange(selectedVendor)" md-items="vendor in querySearch(searchText)" md-item-text="vendor" md-min-length="0" placeholder="{{::i18n.__('WhatIsYourDeviceVendor')}}">
+                <md-item-template>
+                    <span md-highlight-text="searchText" md-highlight-flags="^i">{{vendor}}</span>
+                </md-item-template>
+                <md-not-found>
+                    {{::i18n.__('NoVendorsFound')}}
+                </md-not-found>
+            </md-autocomplete>
+        </header>
+
+
+        <md-dialog-content class="{{next ? 'next' : 'previous'}}  md-dialog-content">
+
+            <md-card ng-repeat="remote in searchResults | limitTo:1:remoteNumber" class="remote-remotecreator" ng-if="!noInternetConnection && searchResults.length && !remotesLoading">
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">{{::i18n.__("Remote")}} #{{remoteNumber + 1}} <i title="{{::i18n.__('ThisInformationMightNotBeAccurate')}}">({{remote.model}})</i></span>
+                        <span flex></span>
+                        <md-checkbox class="md-primary" ng-checked="areAllSelected(remote)" ng-click="selectAllButtons(remote)">{{::i18n.__('SelectAll')}}</md-checkbox>
+                    </md-card-title-text>
+                </md-card-title>
+                <div class="result-buttons">
+                    <div class="key" ng-repeat="button in remote.codes track by $index">
+                        <md-checkbox class="md-primary" ng-checked="isSelected(remote._id + button.codetype)" ng-click="addButtonToSelected(remote, button)">{{i18n.__(button.codetype)}}</md-checkbox>
+                        <md-icon ng-click="broadcastCode(button.codedata)" class="icon-button-send" title="{{::i18n.__('CheckHowItWorks')}}" md-svg-src="img/icons/ic_settings_remote_black_24px.svg"></md-icon>
+                    </div>
+                </div>
+            </md-card>
+
+            <div class="no-remotes-found" ng-show="(searchResults.length == 0 || !selectedVendor) && !remotesLoading && !noInternetConnection">
+                {{selectedVendor ? i18n.__('NoRemotesFound') : i18n.__('SelectVendor')}}
+            </div>
+
+            <md-progress-circular ng-show="remotesLoading && !noInternetConnection" id="remotes-loading-circle" class="md-accent" md-diameter="30px"></md-progress-circular>
+
+            <div ng-show="noInternetConnection" id="no-internet-connection">
+                <md-icon class="icon-black" md-svg-src="img/icons/ic_signal_wifi_off_black_24px.svg"></md-icon>
+                <span>{{::i18n.__('NoInternetConnection')}}</span>
+            </div>
+
+        </md-dialog-content>
+
+        <md-dialog-actions id="action-bar-bottom">
+            <md-button ng-click="getPreviousRemote()" ng-disabled="remoteNumber <= 0">{{::i18n.__("Previous")}}</md-button>
+            <span id="pageCounter" flex><div ng-show="searchResults.length">{{remoteNumber+1}}/{{searchResults.length}}</div></span>
+            <md-button ng-click="getNextRemote()" ng-disabled="remoteNumber >= searchResults.length-1">{{::i18n.__("Next")}}</md-button>
+        </md-dialog-actions>
+
+    </form>
+
+</md-dialog>

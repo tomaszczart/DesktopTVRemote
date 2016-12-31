@@ -1,0 +1,43 @@
+<md-dialog class="shortcut-creator" aria-label="{{::i18n_title}}">
+    <form>
+        <md-dialog-content class="md-dialog-content">
+            <h2 class="md-title">{{::i18n.__('ShortcutCreator')}}</h2>
+            <div class="warning">
+                <md-icon md-svg-src="img/icons/ic_warning_black_24px.svg"></md-icon>
+                <span>{{::i18n.__('ShortcutWarning')}}</span>
+            </div>
+            <div id="edit-box">
+                <div ng-show="accelerator" id="shortcut">
+                    <div class="key-group" ng-repeat="key in accelerator">
+                        <div class="key">{{key}}</div>
+                        <div class="plus" ng-if="accelerator.indexOf(key) < accelerator.length - 1">+</div>
+                    </div>
+                    <div class="key-group">
+                        <md-button id="removeShortcutButton" ng-click="removeShortcut()" class="md-icon-button"
+                                   aria-label="{{::i18n.__('Remove')}}" title="{{::i18n.__('Remove')}}">
+                            <md-icon md-svg-icon="img/icons/ic_clear_black_24px.svg"></md-icon>
+                        </md-button>
+                    </div>
+                </div>
+                <div ng-show="!accelerator" id="no-shortcut">
+                    {{::i18n.__('NoShortcut')}}
+                </div>
+                <div ng-show="listeningForShortcut" id="listening-in-progress">
+                    <md-progress-circular md-diameter="30" class="md-accent" md-mode="indeterminate"></md-progress-circular>
+                </div>
+            </div>
+            <div class="info">
+                <span class="ng-hide" ng-show="listeningForShortcut">{{::i18n.__('UseShortcut')}}<b  class="stop">{{::i18n.__('Stop')}}</b></span>
+                <span class="ng-hide" ng-show="status"><b>{{status}}</b></span>
+            </div>
+        </md-dialog-content>
+        <md-dialog-actions layout="row">
+            <md-button class="{{listeningForShortcut ? 'hide-bt' : 'show-bt'}} md-accent" ng-focus="startListeningForShortcut()" ng-blur="stopListeningForShortcut()"
+                       ng-keyup="pressedKeys($event)" id="listenForShortcutButton">{{accelerator ? i18n.__('Change') : i18n.__('Add')}}
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="cancel()">{{::i18n.__('Cancel')}}</md-button>
+            <md-button ng-click="saveShortcut()" style="margin-right: 20px;">{{::i18n.__('Save')}}</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

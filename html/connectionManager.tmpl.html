@@ -1,0 +1,46 @@
+<md-dialog class="connection-manager" aria-label="{{::i18n.__('ConnectionManager')}}">
+    <form>
+        <md-dialog-content class="md-dialog-content">
+            <h2 class="md-title"> {{::i18n.__('ConnectionManager')}}</h2>
+            <div id="connection-data">
+                <div id="server-info">
+                    <span md-colors="{color:'primary'}">{{::serverInfo.name}}:</span>
+                    <span>{{::i18n.__('Address')}}: <b>{{::serverInfo.host}}</b></span>
+                    <span>{{::i18n.__('Port')}}: <b>{{::serverInfo.port}}</b></span>
+                    <span>
+                            {{::i18n.__('Password')}}:
+                            <input size="8" required maxlength="8" title="{{::i18n.__('PasswordInfo')}}" id="password" value="{{::serverInfo.password}}"/>
+                            <a style="text-transform: lowercase; font-size: 12px; cursor: pointer;" md-colors="{color: 'primary'}" ng-click="changePassword()">{{::i18n.__('ChangePassword')}}</a>
+                    </span>
+                </div>
+                <div id="qrcode" ng-bind-html="QRCode"></div>
+            </div>
+            <div class="info">
+                <md-icon md-svg-src="img/icons/ic_info_black_24px.svg"></md-icon>
+                <span>{{::i18n.__('ConnectionInfo')}}</span>
+            </div>
+            <md-divider></md-divider>
+            <span class="subtitle" md-colors="{color:'primary'}">{{::i18n.__('ConnectedClients')}}</span>
+            <md-list id="clients-list">
+                <div ng-if="!connectedClients.length" id="no-devices">{{::i18n.__("NoDevices")}}</div>
+                <md-list-item ng-repeat="client in connectedClients">
+                    <md-icon class="client-icon" md-svg-icon="./img/icons/ic_phone_android_black_24px.svg"></md-icon>
+                    <p><b>{{client.hostname}}</b> ({{client.remoteAddress}})</p>
+                    <span flex></span>
+                    <md-button  class="md-secondary md-icon-button md-accent" aria-label="{{::i18n.__('Disconnect')}}">
+                        <md-tooltip md-direction="left">{{::i18n.__('Disconnect')}}</md-tooltip>
+                        <md-icon ng-click="removeClient(client)" md-svg-icon="./img/icons/ic_clear_black_24px.svg"></md-icon>
+                    </md-button>
+                    </md-list-item>
+                </md-list-item>
+            </md-list>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="openUserDefaultBrowser('https://www.youtube.com/playlist?list=PL_vuzEti_80vLpVDa717Ggpyk22v-RJLz')" target="_blank" md-autofocus>{{::i18n.__('HowToConnect')}}
+            </md-button>
+            <span flex></span>
+            <md-button ng-click="cancel()" style="margin-right:20px;">{{::i18n.__('Close')}}</md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>
