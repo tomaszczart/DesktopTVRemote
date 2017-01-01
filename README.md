@@ -10,6 +10,9 @@
 <center><img src="screenshots/cm.png" style="margin-top: 24px" width="1009"></center>
 > <center><l>It is easy to connect phone to app, just scan QR-code.</l></center>
 
+<center><img src="screenshots/sc.png" style="margin-top: 24px" width="1009"></center>
+> <center><l>The shortcut is global, so it will work even if the app does not have the keyboard focus.</l></center>
+
 <center><img src="screenshots/rc.png" style="margin-top: 24px" width="1009"></center>
 > <center><l>There is over 1000 vendors in database.</l></center>
 
