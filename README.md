@@ -3,13 +3,13 @@
 
 <center><h3>Basic idea of this project is to control TV and other IR devices by computer using keyboard shortcuts or graphic interface.</h3></center>
 
-<center><img src="screenshots/dtvr.png" width="1009"></center>
+<center><img src="screenshots/dtvr.png" style="margin: 64px 0 12px 0" width="1009"></center>
 
-<center><img src="screenshots/cm.png" width="1009"></center>
+<center><img src="screenshots/cm.png" style="margin: 12px 0" width="1009"></center>
 
-<center><img src="screenshots/rc.png" width="1009"></center>
+<center><img src="screenshots/rc.png" style="margin: 12px 0" width="1009"></center>
 
-<center><img src="screenshots/rc2.png" width="1009"></center>
+<center><img src="screenshots/rc2.png" style="margin: 12px 0" width="1009"></center>
 
 <h5>I'm curently working on android client app to this project.</h5>
 
