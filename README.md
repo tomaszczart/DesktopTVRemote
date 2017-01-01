@@ -16,7 +16,7 @@
 <center><img src="screenshots/rc2.png"  style="margin-top: 24px" width="1009"></center>
 > <center><l>You can customize your remote by selecting buttons.</l></center>
 
-<center><h5  style="margin: 32px 0">I'm curently working on android client app to this project.</h5></center>
+<center><h3  style="margin: 32px 0">I'm curently working on android client app to this project.</h3></center>
 
 # Dev
 
