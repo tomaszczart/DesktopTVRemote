@@ -13,7 +13,7 @@
 > <center><l>Desktop application main screen.</l></center>
 
 <center><img src="screenshots/android.png" style="margin-top: 64px" width="360"></center>
-> <center><l>[Android application](https://github.com/tomaszczart/DesktopTVRemote/) main screen. </l></center>
+> <center><l> [Android application](https://github.com/tomaszczart/DesktopTVRemote/) main screen. </l></center>
 
 <center><img src="screenshots/cm.png" style="margin-top: 24px" width="960"></center>
 > <center><l>It is easy to connect phone to app, just scan QR-code.</l></center>
