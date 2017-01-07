@@ -25,6 +25,7 @@ header .titlebox{
     flex: 1;
     position: relative;
     overflow: hidden;
+        min-height: 348px;
 }
 
 .centerit{
