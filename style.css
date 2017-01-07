@@ -4,6 +4,11 @@ body{
     background: #EEEEEE;
 }
 
+a{
+    color: #3ca2f3;
+    text-decoration: none;
+}
+
 header {
     overflow: hidden;
     min-height: 100vh;
@@ -124,11 +129,6 @@ footer{
     border-top: 1px solid #3b224a;
     padding: 12px;
     color: #ded6e4;
-}
-
-footer a{
-    color: #3ca2f3;
-    text-decoration: none;
 }
 
 footer h3{
