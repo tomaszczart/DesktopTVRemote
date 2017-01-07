@@ -6,8 +6,8 @@
 
 <center style="margin-top: 8px; margin-bottom: 12px;"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2FDesktopTVRemote%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></center>
 
-## <center> DESKTOP APPLICATION INSTALLER IS NOT READY YET. PLEASE STAY TUNED .</center>
-<!-- <center> WINDOWS LINK | ANDROID LINK TODO </center> -->
+## <center> DESKTOP APPLICATION INSTALLER IS NOT READY YET. PLEASE STAY TUNED.</center>
+<center> <a href='https://play.google.com/store/apps/details?id=tomaszczart.com.desktoptvremote&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="200" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a> </center>
 
 <center><img src="screenshots/dtvr.png" style="margin-top: 64px" width="960"></center>
 > <center><l>Desktop application main screen.</l></center>
@@ -28,6 +28,8 @@
 > <center><l>You can customize your remote by selecting buttons.</l></center>
 
 # Desktop TV Remote
+
+[Android](https://play.google.com/store/apps/details?id=tomaszczart.com.desktoptvremote)
 
 # Contributors
 
