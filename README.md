@@ -12,7 +12,7 @@
 <center><img src="screenshots/dtvr.png" style="margin-top: 64px" width="960"></center>
 > <center><l>Desktop application main screen.</l></center>
 
-<center><img src="screenshots/android.png" style="margin-top: 64px" width="960"></center>
+<center><img src="screenshots/android.png" style="margin-top: 64px" width="360"></center>
 > <center><l>[Android application](https://github.com/tomaszczart/DesktopTVRemote/) main screen. </l></center>
 
 <center><img src="screenshots/cm.png" style="margin-top: 24px" width="960"></center>
