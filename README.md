@@ -29,7 +29,6 @@
 
 # Desktop TV Remote
 
-
 # Contributors
 
 Tomasz Czart ([czart.tomasz@gmail.com](mailto:czart.tomasz@gmail.com))
