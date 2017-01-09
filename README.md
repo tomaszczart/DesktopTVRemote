@@ -1,35 +1,30 @@
 
-<center><img src="icons/windows/icon128.png" style="margin:32px 0 0 0" width="128"></center>
- <center> <h1>Desktop TV Remote</h1> </center>
-
-<center><h3>Basic idea of this project is to control TV and other IR devices by computer using keyboard shortcuts or graphical interface.</h3></center>
-
-<center style="margin-top: 8px; margin-bottom: 12px;"><iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2FDesktopTVRemote%2F&width=450&layout=standard&action=like&size=large&show_faces=true&share=true&height=80&appId" width="450" height="80" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe></center>
-
-## <center> DESKTOP APPLICATION INSTALLER IS NOT READY YET. PLEASE STAY TUNED.</center>
-<center> <a href='https://play.google.com/store/apps/details?id=tomaszczart.com.desktoptvremote&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="200" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a> </center>
-
-<center><img src="screenshots/dtvr.png" style="margin-top: 64px" width="960"></center>
-> <center><l>Desktop application main screen.</l></center>
-
-<center><img src="screenshots/android.png" style="margin-top: 64px" width="360"></center>
-> <center><l>Android application main screen. </l></center>
-
-<center><img src="screenshots/cm.png" style="margin-top: 24px" width="960"></center>
-> <center><l>It is easy to connect phone to app, just scan QR-code.</l></center>
-
-<center><img src="screenshots/sc.png" style="margin-top: 24px" width="960"></center>
-> <center><l>The shortcut is global, so it will work even if the app does not have the keyboard focus.</l></center>
-
-<center><img src="screenshots/rc.png" style="margin-top: 24px" width="960"></center>
-> <center><l>There is over 1000 vendors in database.</l></center>
-
-<center><img src="screenshots/rc2.png"  style="margin-top: 24px" width="960"></center>
-> <center><l>You can customize your remote by selecting buttons.</l></center>
-
+<img src="docs/img/icon128.png" style="margin:32px 0 0 0" width="128">
 # Desktop TV Remote
 
-[Android](https://play.google.com/store/apps/details?id=tomaszczart.com.desktoptvremote)
+# Basic idea of this project is to control TV and other IR devices by computer using keyboard shortcuts or graphical interface.
+
+# DESKTOP APPLICATION INSTALLER IS NOT READY YET. PLEASE STAY TUNED.
+<a href='https://play.google.com/store/apps/details?id=tomaszczart.com.desktoptvremote&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img width="200" alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
+
+<img src="screenshots/dtvr.png" style="margin-top: 64px" width="960">
+> *Desktop application main screen.*
+
+<img src="screenshots/android.png" style="margin-top: 64px" width="360">
+> *Android application main screen. *
+
+<img src="screenshots/cm.png" style="margin-top: 24px" width="960">
+> *It is easy to connect phone to app, just scan QR-code.*
+
+<img src="screenshots/sc.png" style="margin-top: 24px" width="960">
+> *The shortcut is global, so it will work even if the app does not have the keyboard focus.*
+
+<img src="screenshots/rc.png" style="margin-top: 24px" width="960">
+> *There is over 1000 vendors in database.*
+
+<img src="screenshots/rc2.png"  style="margin-top: 24px" width="960">
+> *You can customize your remote by selecting buttons.*
+
 
 # Contributors
 
