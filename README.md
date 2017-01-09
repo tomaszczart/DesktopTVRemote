@@ -2,11 +2,11 @@
 <img src="docs/img/icon128.png" style="margin:32px 0 0 0" width="128">
 # Desktop TV Remote
 
-Basic idea of this project is to control TV and other IR devices by computer using keyboard shortcuts or graphical interface.
+### Basic idea of this project is to control TV and other IR devices by computer using keyboard shortcuts or graphical interface.
 
-Dowload desktop app and Android client app [here](http://tomaszczart.github.io/DesktopTVRemote).
+#### Dowload desktop app and Android client app [here](http://tomaszczart.github.io/DesktopTVRemote).
 
-- DESKTOP APPLICATION INSTALLER IS NOT READY YET! I'm working on that...
+#### DESKTOP APPLICATION INSTALLER IS NOT READY YET! I'm working on that...
 
 <img src="docs/screenshots/dtvr.png" style="margin-top: 64px" width="960">
 *Desktop application main screen.*
