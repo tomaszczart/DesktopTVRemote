@@ -2,11 +2,13 @@
 <html lang="en">
 <head>
     <title>Desktop TV Remote</title>
-    <meta property="og:url" content="https://tomaszczart.github.io/DesktopTVRemote/" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Desktop TV Remote" />
-    <meta property="og:description" content="This application allows you to control TV by your computer." />
-    <meta property="og:image" content="https://tomaszczart.github.io/DesktopTVRemote/icons/windows/icon128.png" />
+	<!-- Open graph tags -->
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<meta property="og:image" content="{% if img_src %}{{ img_src }}{% else %}{{ site.icon | prepend: site.baseurl | prepend: site.url }}{% endif %}">
+
+	
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
