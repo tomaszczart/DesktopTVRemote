@@ -4,6 +4,9 @@
     "electron-builder": "^13.5.0"
   },
   "build": {
+    "squirrelWindows": {
+     // "remoteReleases": "http://localhost:9000/dist/win1/"
+    },
     "appId": "com.tomaszczart.desktoptvremote",
     "mac": {
       "category": "public.app-category.utilities",

@@ -1,12 +1,15 @@
 "use strict";
 
+//Handle Squirrel events for Windows immediately on app starts
+if(require('electron-squirrel-startup')) return;
+
 /**
  * Created by Tomasz Czart on 12.07.2016.
  */
 
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
-const {app, Menu, Tray, shell, BrowserWindow} = electron;
+const {app, Menu, Tray, shell, BrowserWindow, autoUpdater} = electron;
 //  Module to setup config and import it
 const nconf = require('./js/config');
 //  Module to communicate with clients
@@ -17,6 +20,9 @@ const shortcuts = require('./js/shortcuts');
 const i18n = require("i18n");
 // Module to load paths
 const path = require('path');
+// Module to get system info
+const os = require('os');
+
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -25,11 +31,43 @@ let win = null;
 //  Tray button-icon object reference
 let trayIcon = null;
 
+/******************** UPDATES ********************/
+
+const updateFeedServer = 'http://dtvr-update.azurewebsites.net/';
+let updateFeed = '';
+
+if (os.platform() === 'win32') {
+    updateFeed = updateFeedServer + 'updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
+}
+
+autoUpdater.addListener("update-available", function(event) {
+    console.log("A new update is available");
+});
+autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
+    console.log("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
+});
+autoUpdater.addListener("error", function(error) {
+    console.log(error);
+});
+autoUpdater.addListener("checking-for-update", function(event) {
+    console.log("Checking for update");
+});
+autoUpdater.addListener("update-not-available", function() {
+    console.log("Update not available");
+});
+
+const appVersion = require('./package.json').version;
+const feedURL = updateFeed + '?v=' + appVersion;
+autoUpdater.setFeedURL(feedURL);
+console.log(updateFeedServer);
+
+/******************** END UPDATES ********************/
+
 function createWindow() {
     //If window already exists, focus it
     if(!win) {
         // Create the browser window.
-        win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#693d84'});
+        win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
 
         // and load the app.html
         win.loadURL(`file://${__dirname}/app.html`);
@@ -39,7 +77,7 @@ function createWindow() {
         win.setMinimumSize(670,425);
 
         // Open the DevTools.
-       // win.webContents.openDevTools();
+        // win.webContents.openDevTools();
 
         // Emitted when the window is closed.
         win.on('closed', () => {
@@ -50,7 +88,7 @@ function createWindow() {
         });
     }else{
         win.focus();
-       }
+    }
 }
 
 // This method will be called when Electron has finished
@@ -122,11 +160,11 @@ app.on('quit', () => {
 });
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock button-icon is clicked and there are no other windows open.
-  if (win === null) {
-    createWindow();
-  }
+    // On macOS it's common to re-create a window in the app when the
+    // dock button-icon is clicked and there are no other windows open.
+    if (win === null) {
+        createWindow();
+    }
 });
 
 // On uncaught exception log into console
