@@ -30,6 +30,6 @@
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron ./app",
-    "dist": "build --win --x64 --ia32"
+    "dist": "build --win --x64 --ia32 --publish"
   }
 }
