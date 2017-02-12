@@ -29,7 +29,6 @@
     }
   },
   "scripts": {
-    "postinstall": "install-app-deps",
     "start": "electron ./app",
     "dist": "build --win"
   }
