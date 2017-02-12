@@ -6,7 +6,7 @@
 
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
-const {app, Menu, Tray, shell, BrowserWindow, autoUpdater} = electron;
+const {app, Menu, Tray, shell, BrowserWindow} = electron;
 //  Module to setup config and import it
 const nconf = require('./js/config');
 //  Module to communicate with clients
