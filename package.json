@@ -23,7 +23,7 @@
       }
     },
     "win": {
-      "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/icons/icons.ico"
+      "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico"
     }
   },
   "scripts": {
