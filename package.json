@@ -5,6 +5,7 @@
   },
   "build": {
     "appId": "com.tomaszczart.desktoptvremote",
+    "outputDirectory": "output",
     "mac": {
       "category": "public.app-category.utilities",
       "dmg": {
