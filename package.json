@@ -25,13 +25,11 @@
     "win": {
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
-      "certificatePassword": "password",
-      "outputDirectory": "./dist/RELEASE/"
+      "certificatePassword": "password"
     }
   },
   "scripts": {
     "start": "electron ./app",
     "dist": "build --win"
-  },
-  "dependencies": {}
+  }
 }

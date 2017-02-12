@@ -6,7 +6,7 @@
 
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
-const {app, Menu, Tray, shell, BrowserWindow} = electron;
+const {app, Menu, Tray, shell, BrowserWindow, autoUpdater} = electron;
 //  Module to setup config and import it
 const nconf = require('./js/config');
 //  Module to communicate with clients
@@ -137,6 +137,29 @@ app.on('activate', () => {
 process.on('uncaughtException', (err) => {
     app.quit();
 });
+
+
+autoUpdater.on('update-availabe', () => {
+    console.log('update available');
+});
+
+autoUpdater.on('checking-for-update', () => {
+    console.log('checking-for-update');
+});
+
+autoUpdater.on('update-not-available', () => {
+    console.log('update-not-available');
+});
+
+autoUpdater.on('update-downloaded', (e) => {
+    console.log(e)
+    alert("Install?")
+    autoUpdater.quitAndInstall();
+});
+
+autoUpdater.setFeedURL('http://dtvr-update.azurewebsites.net/win/');
+autoUpdater.checkForUpdates();
+
 
 const squirrelCommand = process.argv[1]
 switch (squirrelCommand) {
