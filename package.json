@@ -32,5 +32,6 @@
   "scripts": {
     "start": "electron ./app",
     "dist": "build --win"
-  }
+  },
+  "dependencies": {}
 }

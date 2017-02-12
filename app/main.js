@@ -4,10 +4,6 @@
  * Created by Tomasz Czart on 12.07.2016.
  */
 
-
-//Handle Squirrel events for Windows immediately on app starts
-if(require('electron-squirrel-startup')) return;
-
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
 const {app, Menu, Tray, shell, BrowserWindow, autoUpdater} = electron;
@@ -32,41 +28,10 @@ let win = null;
 //  Tray button-icon object reference
 let trayIcon = null;
 
-/******************** UPDATES ********************/
-
-const updateFeedServer = 'http://dtvr-update.azurewebsites.net/';
-let updateFeed = '';
-
-if (os.platform() === 'win32') {
-    updateFeed = updateFeedServer + 'updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
-}
-
-autoUpdater.addListener("update-available", function(event) {
-    console.log("A new update is available");
-});
-autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    console.log("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
-});
-autoUpdater.addListener("error", function(error) {
-    console.log(error);
-});
-autoUpdater.addListener("checking-for-update", function(event) {
-    console.log("Checking for update");
-});
-autoUpdater.addListener("update-not-available", function() {
-    console.log("Update not available");
-});
-
-const appVersion = require('./package.json').version;
-const feedURL = updateFeed + '?v=' + appVersion;
-autoUpdater.setFeedURL(feedURL);
-console.log(updateFeedServer);
-
-/******************** END UPDATES ********************/
 
 function createWindow() {
     //If window already exists, focus it
-    if(!win) {
+    if (!win) {
         // Create the browser window.
         win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
 
@@ -75,7 +40,7 @@ function createWindow() {
         // hide menubar
         win.setMenuBarVisibility(false);
         // min window size
-        win.setMinimumSize(670,425);
+        win.setMinimumSize(670, 425);
 
         // Open the DevTools.
         // win.webContents.openDevTools();
@@ -87,7 +52,7 @@ function createWindow() {
             // when you should delete the corresponding element.
             win = null;
         });
-    }else{
+    } else {
         win.focus();
     }
 }
@@ -97,7 +62,7 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
 
-    let shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
+    let shouldQuit = app.makeSingleInstance(function (commandLine, workingDirectory) {
         // Someone tried to run a second instance, we should focus our window.
         if (win) {
             if (win.isMinimized()) win.restore();
@@ -172,6 +137,15 @@ app.on('activate', () => {
 process.on('uncaughtException', (err) => {
     app.quit();
 });
+
+const squirrelCommand = process.argv[1]
+switch (squirrelCommand) {
+    case '--squirrel-install':
+    case '--squirrel-updated':
+    case '--squirrel-obsolete':
+        app.quit()
+        return true;
+}
 
 // Exports milti languages support to render process
 module.exports.i18n = i18n;
