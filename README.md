@@ -6,8 +6,6 @@
 
 #### Dowload desktop app and Android client app [here](http://tomaszczart.github.io/DesktopTVRemote).
 
-#### DESKTOP APPLICATION INSTALLER IS NOT READY YET! I'm working on that...
-
 <img src="docs/screenshots/dtvr.png" style="margin-top: 64px" width="960">
 *Desktop application main screen.*
 
