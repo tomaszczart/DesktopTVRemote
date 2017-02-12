@@ -24,12 +24,13 @@
     },
     "win": {
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
-	  "outputDirectory": "output/"
+      "certificateFile": "./certs/signing_key.pfx",
+      "certificatePassword": "password"
     }
   },
   "scripts": {
     "postinstall": "install-app-deps",
     "start": "electron ./app",
-    "dist": "build --win --x64 --ia32 --publish"
+    "dist": "build --win"
   }
 }
