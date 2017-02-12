@@ -157,7 +157,7 @@ autoUpdater.on('update-downloaded', (e) => {
     autoUpdater.quitAndInstall();
 });
 
-autoUpdater.setFeedURL("http://dtvr-update.azurewebsites.net/win/");
+autoUpdater.setFeedURL("http://http://dtvr-update.azurewebsites.net/download/latest/");
 autoUpdater.checkForUpdates();
 
 
