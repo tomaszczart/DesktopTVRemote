@@ -1,11 +1,12 @@
 "use strict";
 
-//Handle Squirrel events for Windows immediately on app starts
-if(require('electron-squirrel-startup')) return;
-
 /**
  * Created by Tomasz Czart on 12.07.2016.
  */
+
+
+//Handle Squirrel events for Windows immediately on app starts
+if(require('electron-squirrel-startup')) return;
 
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
