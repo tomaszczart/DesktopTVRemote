@@ -28,6 +28,37 @@ let win = null;
 //  Tray button-icon object reference
 let trayIcon = null;
 
+/******************** UPDATES ********************/
+
+const updateFeedServer = 'http://dtvr-update.azurewebsites.net/update';
+let updateFeed = '';
+
+if (os.platform() === 'win32') {
+    updateFeed = updateFeedServer + '?platform=win' + (os.arch() === 'x64' ? '64' : '32');
+}
+
+autoUpdater.addListener("update-available", function(event) {
+    console.log("A new update is available");
+});
+autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
+    console.log("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
+});
+autoUpdater.addListener("error", function(error) {
+    console.log(error);
+});
+autoUpdater.addListener("checking-for-update", function(event) {
+    console.log("Checking for update");
+});
+autoUpdater.addListener("update-not-available", function() {
+    console.log("Update not available");
+});
+
+const appVersion = require('./package.json').version;
+const feedURL = updateFeed + '&version=' + appVersion;
+autoUpdater.setFeedURL(feedURL);
+console.log(updateFeedServer);
+
+/******************** END UPDATES ********************/
 
 function createWindow() {
     //If window already exists, focus it
@@ -137,38 +168,6 @@ app.on('activate', () => {
 process.on('uncaughtException', (err) => {
     app.quit();
 });
-
-
-autoUpdater.on('update-availabe', () => {
-    console.log('update available');
-});
-
-autoUpdater.on('checking-for-update', () => {
-    console.log('checking-for-update');
-});
-
-autoUpdater.on('update-not-available', () => {
-    console.log('update-not-available');
-});
-
-autoUpdater.on('update-downloaded', (e) => {
-    console.log(e)
-    alert("Install?")
-    autoUpdater.quitAndInstall();
-});
-
-autoUpdater.setFeedURL("http://http://dtvr-update.azurewebsites.net/download/latest/");
-autoUpdater.checkForUpdates();
-
-
-const squirrelCommand = process.argv[1]
-switch (squirrelCommand) {
-    case '--squirrel-install':
-    case '--squirrel-updated':
-    case '--squirrel-obsolete':
-        app.quit()
-        return true;
-}
 
 // Exports milti languages support to render process
 module.exports.i18n = i18n;
