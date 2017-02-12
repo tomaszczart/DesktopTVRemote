@@ -92,7 +92,7 @@ server.on('error', (err) => {
 
 // Start server on port from config
 module.exports.startServer = () => server.listen(nconf.get('port'), () => {
-    console.log(`${COMPUTER_NAME} is listening on ${HOST}:${nconf.get('port')}`);
+    //console.log(`${COMPUTER_NAME} is listening on ${HOST}:${nconf.get('port')}`);
 });
 
 // Send to al clients message about closing the sever and close it
