@@ -1,0 +1,34 @@
+{
+  "devDependencies": {
+    "electron": "^1.4.15",
+    "electron-builder": "^13.5.0"
+  },
+  "build": {
+    "appId": "com.tomaszczart.desktoptvremote",
+    "mac": {
+      "category": "public.app-category.utilities",
+      "dmg": {
+        "contents": [
+          {
+            "x": 110,
+            "y": 150
+          },
+          {
+            "x": 240,
+            "y": 150,
+            "type": "link",
+            "path": "/Applications"
+          }
+        ]
+      }
+    },
+    "win": {
+      "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/icons/icons.ico"
+    }
+  },
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "electron ./app",
+    "dist": "build --win --x64 --ia32"
+  }
+}
