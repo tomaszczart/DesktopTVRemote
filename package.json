@@ -25,7 +25,8 @@
     "win": {
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
-      "certificatePassword": "password"
+      "certificatePassword": "password",
+      "msi": true,
     }
   },
   "scripts": {
