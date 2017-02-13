@@ -27,10 +27,7 @@
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
       "target": "nsis",
-      "oneClick": true,
-      "perMachine": true,
-      "runAfterFinish": true,
-      "allowToChangeInstallationDirectory": true
+      "msi": true
     }
   },
   "scripts": {
