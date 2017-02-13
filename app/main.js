@@ -30,11 +30,11 @@ let trayIcon = null;
 
 /******************** UPDATES ********************/
 
-const updateFeedServer = 'http://dtvr-update.azurewebsites.net/update';
+const updateFeedServer = 'http://dtvr-update.azurewebsites.net/update/';
 let updateFeed = '';
 
 if (os.platform() === 'win32') {
-    updateFeed = updateFeedServer + '?platform=win' + (os.arch() === 'x64' ? '64' : '32');
+    updateFeed = updateFeedServer + 'win' + (os.arch() === 'x64' ? '64' : '32');
 }
 
 autoUpdater.addListener("update-available", function(event) {
@@ -54,7 +54,7 @@ autoUpdater.addListener("update-not-available", function() {
 });
 
 const appVersion = require('./package.json').version;
-const feedURL = updateFeed + '&version=' + appVersion;
+const feedURL = updateFeed + '/' + appVersion + '/RELEASES';
 autoUpdater.setFeedURL(feedURL);
 console.log(updateFeedServer);
 
