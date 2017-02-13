@@ -1,0 +1,82 @@
+<svg id="icon" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 1024 1024">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c138 79.159824, 2016/09/14-01:09:01        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta>
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                                                                                                    
+                           
+<?xpacket end="w"?></metadata>
+<defs>
+    <style>
+      .cls-1 {
+        fill: #5b3573;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill-rule: evenodd;
+      }
+
+      .cls-4 {
+        fill: #2196f3;
+        stroke: #fff;
+        stroke-width: 16px;
+      }
+
+      .cls-4, .cls-5 {
+        stroke-linejoin: round;
+      }
+
+      .cls-5 {
+        fill: #efefef;
+        stroke: #e0e0e0;
+        stroke-width: 4px;
+      }
+
+      .cls-6 {
+        fill: #c5c5c4;
+      }
+
+      .cls-7 {
+        fill: #f44336;
+      }
+    </style>
+  </defs>
+  <circle id="Elipse" class="cls-1" cx="512" cy="512" r="512"/>
+  <g id="antena">
+    <path id="Prostokąt_4" data-name="Prostokąt 4" class="cls-2" d="M457.03,310.841L624.811,193.587l9.767,13.987L466.8,324.828Z"/>
+    <path id="Elipsa_1_kopia" data-name="Elipsa 1 kopia" class="cls-2" d="M631.9,188.345a12.8,12.8,0,1,1-14.827,10.369A12.8,12.8,0,0,1,631.9,188.345Z"/>
+    <path id="Prostokąt_4-2" data-name="Prostokąt 4" class="cls-2" d="M556.573,325.85L389,208.3l9.792-13.97L566.365,311.88Z"/>
+    <circle id="Elipsa_1_kopia-2" data-name="Elipsa 1 kopia" class="cls-3" cx="394.25" cy="201.219" r="12.781"/>
+  </g>
+  <rect id="Prostokąt_1" data-name="Prostokąt 1" class="cls-4" x="150" y="273" width="724" height="477.75" rx="65.799" ry="65.799"/>
+  <path id="Prostokąt_3" data-name="Prostokąt 3" class="cls-3" d="M379.25,750h266.5a0,0,0,0,1,0,0v15.261A8.739,8.739,0,0,1,637.011,774H387.989a8.739,8.739,0,0,1-8.739-8.739V750A0,0,0,0,1,379.25,750Z"/>
+  <rect id="Prostokąt_2" data-name="Prostokąt 2" class="cls-5" x="88" y="392" width="265" height="448" rx="128" ry="128"/>
+  <rect id="Prostokąt_4-3" data-name="Prostokąt 4" class="cls-6" x="219" y="394" width="2" height="19"/>
+  <rect id="Prostokąt_3-2" data-name="Prostokąt 3" class="cls-6" x="196" y="409" width="48" height="192" rx="24" ry="24"/>
+  <rect id="Prostokąt_1-2" data-name="Prostokąt 1" class="cls-7" x="204" y="417" width="32" height="96" rx="16" ry="16"/>
+</svg>
