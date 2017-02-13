@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "electron": "^1.4.15",
-    "electron-builder": "^13.5.0"
+    "electron-builder": "^13.5.0",
+    "electron-builder-squirrel-windows": "^13.6.1"
   },
   "build": {
     "appId": "com.tomaszczart.desktoptvremote",
@@ -27,7 +28,8 @@
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
       "msi": true,
-      "oneClick": false
+      "oneClick": false,
+      "target": "squirrel"
     }
   },
   "scripts": {
