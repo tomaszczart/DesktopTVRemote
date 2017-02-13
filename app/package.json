@@ -1,7 +1,7 @@
 {
   "name": "desktop_tv_remote",
   "productName": "Desktop TV Remote",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This application allows you to control your TV by your computer.",
   "author": {
     "name": "Tomasz Czart",
