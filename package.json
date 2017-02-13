@@ -1,8 +1,7 @@
 {
   "devDependencies": {
     "electron": "^1.4.15",
-    "electron-builder": "^13.5.0",
-    "electron-builder-squirrel-windows": "^13.6.1"
+    "electron-builder": "^13.5.0"
   },
   "build": {
     "appId": "com.tomaszczart.desktoptvremote",
@@ -27,7 +26,11 @@
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
-      "target": "squirrel"
+      "target": "nsis",
+      "oneClick": true,
+      "perMachine": true,
+      "runAfterFinish": true,
+      "allowToChangeInstallationDirectory": true
     }
   },
   "scripts": {
