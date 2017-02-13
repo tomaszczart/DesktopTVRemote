@@ -1,5 +1,5 @@
 
-<img src="docs/img/192x192.png" style="margin:32px 0 0 0" width="128">
+<img src="docs/img/icon192.png" style="margin:32px 0 0 0" width="128">
 # Desktop TV Remote
 
 ### Basic idea of this project is to control TV and other IR devices by computer using keyboard shortcuts or graphical interface.
