@@ -27,8 +27,6 @@
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
-      "msi": true,
-      "oneClick": false,
       "target": "squirrel"
     }
   },
