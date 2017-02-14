@@ -109,7 +109,9 @@ content{
     background: url("img/how-it-works.svg") no-repeat center;
     background-size: contain;
     height: 300px;
-    margin: 32px;
+    width: 100%;
+    margin: 32px 0;
+    display: inline-block;
 }
 
 .screenshot {
