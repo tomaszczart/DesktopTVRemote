@@ -102,9 +102,14 @@ content{
 }
 
 .colored-container{
-    background: #0078d7 url("img/how-it-works.svg") no-repeat center;
+    background-color: #0078d7;
+}
+
+.colored-container content{
+    background: url("img/how-it-works.svg") no-repeat center;
     background-size: auto;
     height: 300px;
+    margin: 16px;
 }
 
 .screenshot {
