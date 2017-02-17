@@ -67,8 +67,6 @@
 
       .cls-9 {
         fill: #54316a;
-        stroke: #000;
-        stroke-width: 1px;
       }
 
       .cls-10, .cls-25 {
@@ -143,7 +141,7 @@
     <rect class="cls-7" x="66" y="183" width="186" height="108"/>
     <path id="Rounded_Rectangle_7" data-name="Rounded Rectangle 7" class="cls-8" d="M136,295h45a0,0,0,0,1,0,0v4a2,2,0,0,1-2,2H138a2,2,0,0,1-2-2v-4A0,0,0,0,1,136,295Z"/>
     <g id="SCREEN">
-      <rect id="Rectangle_10s" data-name="Rectangle 10s" class="cls-9" x="84" y="207" width="148" height="75"/>
+      <rect class="cls-9" x="84" y="207" width="148" height="75"/>
       <rect class="cls-10" x="84" y="192" width="148" height="15"/>
       <path id="num" class="cls-11" d="M105,227h16v16H105V227Zm-18,0h16v16H87V227Zm0,18h16v16H87V245Zm0,18h16v16H87V263Zm18-18h16v16H105V245Zm0,18h16v16H105V263Zm18,0h16v16H123V263Zm0-18h16v16H123V245Zm0-18h16v16H123V227Z"/>
       <rect id="pwr" class="cls-3" x="87" y="209" width="16" height="16"/>
