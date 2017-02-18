@@ -3,6 +3,16 @@
     "electron": "^1.6.0",
     "electron-builder": "^13.10.1"
   },
+  "name": "desktop_tv_remote",
+  "productName": "Desktop TV Remote",
+  "version": "1.0.1",
+  "description": "This application allows you to control TV by your computer.",
+  "homepage": "homepage",
+  "author": {
+    "name": "Tomasz Czart",
+    "email": "czart.tomasz@gmail.com",
+    "url": "https://tomaszczart.github.io/DesktopTVRemote/"
+  },
   "build": {
     "appId": "com.tomaszczart.desktoptvremote",
     "mac": {

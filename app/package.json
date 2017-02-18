@@ -1,13 +1,4 @@
 {
-  "name": "desktop_tv_remote",
-  "productName": "Desktop TV Remote",
-  "version": "1.0.1",
-  "description": "This application allows you to control TV by your computer.",
-  "author": {
-    "name": "Tomasz Czart",
-    "email": "czart.tomasz@gmail.com",
-    "url": "https://tomaszczart.github.io/DesktopTVRemote/"
-  },
   "main": "./main.js",
   "dependencies": {
     "angular": "^1.6.1",
