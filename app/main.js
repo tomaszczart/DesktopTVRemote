@@ -38,25 +38,25 @@ if (os.platform() === 'win32') {
 }
 
 autoUpdater.addListener("update-available", function(event) {
-    console.log("A new update is available");
+    window.alert("A new update is available");
 });
 autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    console.log("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
+    window.alert("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
 });
 autoUpdater.addListener("error", function(error) {
-    console.log(error);
+    window.alert(error);
 });
 autoUpdater.addListener("checking-for-update", function(event) {
-    console.log("Checking for update");
+    window.alert("Checking for update");
 });
 autoUpdater.addListener("update-not-available", function() {
-    console.log("Update not available");
+    window.alert("Update not available");
 });
 
 const appVersion = require('./package.json').version;
 const feedURL = updateFeed + '/' + appVersion + '/RELEASES';
 autoUpdater.setFeedURL(feedURL);
-console.log(updateFeedServer);
+window.alert(updateFeedServer);
 
 /******************** END UPDATES ********************/
 
