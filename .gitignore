@@ -4,3 +4,5 @@ app/node_modules/
 node_modules/
 dist/
 .DS_Store
+npm-debug.log
+app/npm-debug.log
