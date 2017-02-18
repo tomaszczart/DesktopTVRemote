@@ -28,10 +28,10 @@
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
       "remoteReleases": true,
-      "target": "nsis",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "perMachine": true
+      "perMachine": true,
+      "target": "nsis"
     }
   },
   "scripts": {
