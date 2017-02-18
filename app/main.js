@@ -6,7 +6,7 @@
 
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
-const {app, Menu, Tray, shell, BrowserWindow, autoUpdater} = electron;
+const {app, Menu, Tray, shell, BrowserWindow, autoUpdater, dialog} = electron;
 //  Module to setup config and import it
 const nconf = require('./js/config');
 //  Module to communicate with clients
@@ -38,25 +38,25 @@ if (os.platform() === 'win32') {
 }
 
 autoUpdater.addListener("update-available", function(event) {
-    window.alert("A new update is available");
+    dialog.showErrorBox("Auto Updater", "A new update is available");
 });
 autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    window.alert("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
+    dialog.showErrorBox("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
 });
 autoUpdater.addListener("error", function(error) {
-    window.alert(error);
+    dialog.showErrorBox("Auto Updater", error.toString());
 });
 autoUpdater.addListener("checking-for-update", function(event) {
-    window.alert("Checking for update");
+    dialog.showErrorBox("Auto Updater", "Checking for update");
 });
 autoUpdater.addListener("update-not-available", function() {
-    window.alert("Update not available");
+    dialog.showErrorBox("Auto Updater", "Update not available");
 });
 
 const appVersion = require('./package.json').version;
 const feedURL = updateFeed + '/' + appVersion + '/RELEASES';
 autoUpdater.setFeedURL(feedURL);
-window.alert(updateFeedServer);
+dialog.showErrorBox("Auto Updater", updateFeedServer);
 
 /******************** END UPDATES ********************/
 
@@ -72,7 +72,6 @@ function createWindow() {
         win.setMenuBarVisibility(false);
         // min window size
         win.setMinimumSize(670, 425);
-
         // Open the DevTools.
         // win.webContents.openDevTools();
 
