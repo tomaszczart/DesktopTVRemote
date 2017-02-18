@@ -36,8 +36,6 @@
   },
   "scripts": {
     "start": "electron ./app",
-    "dist": "build --win --x64",
-    "deploy": "PACKAGE_VERSION=$(cat app/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && aws s3 sync release/ http://dtvr-update.azurewebsites.net/updates/$PACKAGE_VERSION/ --acl public-read && aws s3 sync http://dtvr-update.azurewebsites.net/updates/$PACKAGE_VERSION/ http://dtvr-update.azurewebsites.net/updates/latest/ --delete --acl public-read",
-    "all": "npm run dist && npm run deploy"
+    "dist": "build --win"
   }
 }
