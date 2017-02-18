@@ -56,7 +56,6 @@ autoUpdater.addListener("update-not-available", function() {
 const appVersion = require('./package.json').version;
 const feedURL = updateFeed + '/' + appVersion + '/RELEASES';
 autoUpdater.setFeedURL(feedURL);
-dialog.showErrorBox("Auto Updater", feedURL);
 
 /******************** END UPDATES ********************/
 
