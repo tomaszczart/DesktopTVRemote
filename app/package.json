@@ -9,9 +9,6 @@
     "url": "https://www.facebook.com/DesktopTVRemote/"
   },
   "main": "./main.js",
-  "scripts": {
-    "start": "electron ."
-  },
   "dependencies": {
     "angular": "^1.6.1",
     "angular-animate": "^1.6.1",
