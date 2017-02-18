@@ -23,12 +23,15 @@
       }
     },
     "win": {
+      "publisherName": "Tomasz Czart",
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
-      "remoteReleases": "https://github.com/tomaszczart/DesktopTVRemote/releases",
+      "remoteReleases": true,
       "target": "nsis",
-      "oneClick": false
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true
     }
   },
   "scripts": {
