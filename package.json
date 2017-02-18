@@ -26,6 +26,7 @@
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
+      "remoteReleases": "https://github.com/tomaszczart/DesktopTVRemote/releases",
       "target": "nsis",
       "oneClick": false
     }
