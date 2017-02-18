@@ -65,6 +65,8 @@ function createWindow() {
         // Create the browser window.
         win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
 
+        autoUpdater.checkForUpdates();
+
         // and load the app.html
         win.loadURL(`file://${__dirname}/app.html`);
         // hide menubar
