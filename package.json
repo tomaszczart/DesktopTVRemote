@@ -31,14 +31,11 @@
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "perMachine": true,
-      "target": "squirrel"
+      "target": "nsis"
     }
   },
   "scripts": {
     "start": "electron ./app",
     "dist": "build --win"
-  },
-  "dependencies": {
-    "electron-builder-squirrel-windows": "^13.10.1"
   }
 }
