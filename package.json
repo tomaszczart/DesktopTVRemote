@@ -36,7 +36,6 @@
   "allowToChangeInstallationDirectory": true,
   "perMachine": true
 }
-}
   },
   "scripts": {
     "start": "electron ./app",
