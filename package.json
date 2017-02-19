@@ -28,10 +28,11 @@
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
       "remoteReleases": "https://github.com/tomaszczart/DesktopTVRemote",
+      "target": "nsis",
+      "publish": ["github"],
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
-      "perMachine": true,
-      "target": "nsis"
+      "perMachine": true
     }
   },
   "scripts": {
