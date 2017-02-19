@@ -36,13 +36,15 @@ function createWindow() {
 
 
         dialog.showMessageBox({
-            type: 'info',
-            title: i18n.__('NewUpdate'),
-            icon: path.join(__dirname, '/img/app-icons/128x128.png'),
-            message: 'New version is downloaded.',
-            detail: 'If you select later, update will be automatically installed on Quit.',
-            buttons: ['Later', 'Install Now']},
-            option => {
+                type: 'info',
+                title: i18n.__('NewUpdate'),
+                icon: path.join(__dirname, '/img/app-icons/128x128.png'),
+                message: 'New version is downloaded.',
+                detail: 'If you select later, update will be automatically installed on Quit.',
+                buttons: ['Later', 'Install Now']
+            },
+            function(option) {
+                dialog.showErrorBox("Auto Updater", "test");
                 dialog.showErrorBox("Auto Updater", option);
                 switch (option) {
                     case 0:
@@ -131,11 +133,11 @@ app.on('ready', () => {
     shortcuts.registerShortcuts();
 
     // Handling new updates
-    autoUpdater.addListener("update-downloaded", function(event) {
+    autoUpdater.addListener("update-downloaded", function (event) {
 
     });
 
-    autoUpdater.addListener("error", function(error) {
+    autoUpdater.addListener("error", function (error) {
         dialog.showErrorBox("Auto Updater", error.toString());
     });
 
