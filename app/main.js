@@ -30,24 +30,6 @@ let win = null;
 //  Tray button-icon object reference
 let trayIcon = null;
 
-/******************** UPDATES ********************/
-
-autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    dialog.showMessageBox({
-        type: 'info',
-        message: `Version ${releaseName} from ${releaseDate} is downloaded and will be automatically installed on Quit`,
-        buttons: ['Yes', 'No']
-    });
-});
-
-autoUpdater.addListener("error", function(error) {
-    dialog.showErrorBox("Auto Updater", error.toString());
-});
-
-autoUpdater.checkForUpdates();
-
-/******************** END UPDATES ********************/
-
 function createWindow() {
     //If window already exists, focus it
     if (!win) {
@@ -127,6 +109,27 @@ app.on('ready', () => {
 
     server.startServer();
     shortcuts.registerShortcuts();
+
+    // Handling new updates
+    autoUpdater.addListener("update-downloaded", function(event) {
+        dialog.showMessageBox({
+            type: 'info',
+            title: i18n.__('NewUpdate'),
+            icon: path.join(__dirname, '/img/app-icons/256x256.png'),
+            message: `Version ${event} is downloaded and will be automatically installed on Quit`,
+            buttons: ['Install Now', 'Later']
+        }, option => {
+            dialog.showErrorBox("Auto Updater", option);
+        });
+    });
+
+    autoUpdater.addListener("error", function(error) {
+        dialog.showErrorBox("Auto Updater", error.toString());
+    });
+
+    autoUpdater.checkForUpdates();
+
+    /******************** END UPDATES ********************/
 
     //  Open window on app start
     createWindow();
