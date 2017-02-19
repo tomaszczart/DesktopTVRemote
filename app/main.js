@@ -117,7 +117,7 @@ app.on('ready', () => {
             title: i18n.__('NewUpdate'),
             icon: path.join(__dirname, '/img/app-icons/128x128.png'),
             message: 'New version is downloaded.',
-            detail: 'If you select later, update will be automatically installed on Quit.'
+            detail: 'If you select later, update will be automatically installed on Quit.',
             buttons: ['Install Now', 'Later'],
             callback: option => {
                 switch (option) {
