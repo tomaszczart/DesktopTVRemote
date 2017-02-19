@@ -115,11 +115,21 @@ app.on('ready', () => {
         dialog.showMessageBox({
             type: 'info',
             title: i18n.__('NewUpdate'),
-            icon: path.join(__dirname, '/img/app-icons/256x256.png'),
-            message: `Version ${event} is downloaded and will be automatically installed on Quit`,
-            buttons: ['Install Now', 'Later']
-        }, option => {
-            dialog.showErrorBox("Auto Updater", option);
+            icon: path.join(__dirname, '/img/app-icons/128x128.png'),
+            message: 'New version is downloaded.',
+            detail: 'If you select later, update will be automatically installed on Quit.'
+            buttons: ['Install Now', 'Later'],
+            callback: option => {
+                switch (option) {
+                    case 0:
+                        dialog.showErrorBox("Auto Updater", option);
+                        break;
+                    case 1:
+                        autoUpdater.quitAndInstall();
+                        break;
+                }
+            }
+        });
         });
     });
 
