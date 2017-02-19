@@ -32,21 +32,17 @@ let trayIcon = null;
 
 /******************** UPDATES ********************/
 
-autoUpdater.addListener("update-available", function(event) {
-    dialog.showErrorBox("Auto Updater", "A new update is available");
+autoUpdater.addListener("update-available", function(event, releaseNotes, releaseName, releaseDate) {
+    dialog.showErrorBox("Auto Updater", `Version ${releaseName} from ${releaseDate} is available.`);
 });
 autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    dialog.showErrorBox("A new update is ready to install", `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
+    dialog.showErrorBox("A new update is ready to install", `Version ${releaseName} from ${releaseDate} is downloaded and will be automatically installed on Quit`);
 });
 autoUpdater.addListener("error", function(error) {
     dialog.showErrorBox("Auto Updater", error.toString());
 });
-autoUpdater.addListener("checking-for-update", function(event) {
-    dialog.showErrorBox("Auto Updater", "Checking for update");
-});
-autoUpdater.addListener("update-not-available", function() {
-    dialog.showErrorBox("Auto Updater", "Update not available");
-});
+
+autoUpdater.checkForUpdates();
 
 /******************** END UPDATES ********************/
 
@@ -55,8 +51,6 @@ function createWindow() {
     if (!win) {
         // Create the browser window.
         win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
-
-        autoUpdater.checkForUpdates();
 
         // and load the app.html
         win.loadURL(`file://${__dirname}/app.html`);

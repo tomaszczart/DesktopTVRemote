@@ -103,9 +103,6 @@ nav{
 
 .editing-label{
     background: #fff;
-    position: absolute;
-    float: right;
-    right: 0;
     box-shadow: -25px 0 25px rgba(255,255,255,.9);
 }
 
