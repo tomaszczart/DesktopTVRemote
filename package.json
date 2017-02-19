@@ -30,12 +30,11 @@
       "remoteReleases": "https://github.com/tomaszczart/DesktopTVRemote",
       "target": "nsis"
     },
-    "nsis":{
-  "publish": ["github"],
-  "oneClick": false,
-  "allowToChangeInstallationDirectory": true,
-  "perMachine": true
-}
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true
+    }
   },
   "scripts": {
     "start": "electron ./app",
