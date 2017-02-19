@@ -118,11 +118,11 @@ app.on('ready', () => {
             icon: path.join(__dirname, '/img/app-icons/128x128.png'),
             message: 'New version is downloaded.',
             detail: 'If you select later, update will be automatically installed on Quit.',
-            buttons: ['Install Now', 'Later'],
+            buttons: ['Later', 'Install Now'],
             callback: option => {
+                dialog.showErrorBox("Auto Updater", option);
                 switch (option) {
                     case 0:
-                        dialog.showErrorBox("Auto Updater", option);
                         break;
                     case 1:
                         autoUpdater.quitAndInstall();
