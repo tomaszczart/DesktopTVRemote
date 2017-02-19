@@ -6,7 +6,7 @@
 
 const electron = require('electron');
 // Module to control application life and module to create native browser window.
-const {app, Menu, Tray, shell, BrowserWindow, autoUpdater, dialog} = electron;
+const {app, Menu, Tray, shell, BrowserWindow, dialog} = electron;
 //  Module to setup config and import it
 const nconf = require('./js/config');
 //  Module to communicate with clients
@@ -19,6 +19,8 @@ const i18n = require("i18n");
 const path = require('path');
 // Module to get system info
 const os = require('os');
+// Module to update app
+import { autoUpdater } from "electron-updater"
 
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -29,13 +31,6 @@ let win = null;
 let trayIcon = null;
 
 /******************** UPDATES ********************/
-
-const updateFeedServer = 'http://dtvr-update.azurewebsites.net/update/';
-let updateFeed = '';
-
-if (os.platform() === 'win32') {
-    updateFeed = updateFeedServer + 'win' + (os.arch() === 'x64' ? '64' : '32');
-}
 
 autoUpdater.addListener("update-available", function(event) {
     dialog.showErrorBox("Auto Updater", "A new update is available");
@@ -52,10 +47,6 @@ autoUpdater.addListener("checking-for-update", function(event) {
 autoUpdater.addListener("update-not-available", function() {
     dialog.showErrorBox("Auto Updater", "Update not available");
 });
-
-const appVersion = require('./package.json').version;
-const feedURL = updateFeed + '/' + appVersion + '/RELEASES';
-autoUpdater.setFeedURL(feedURL);
 
 /******************** END UPDATES ********************/
 
