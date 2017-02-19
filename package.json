@@ -3,6 +3,10 @@
     "electron": "^1.6.0",
     "electron-builder": "^13.10.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomaszczart/DesktopTVRemote.git"
+  },
   "build": {
     "appId": "com.tomaszczart.desktoptvremote",
     "mac": {
@@ -27,8 +31,8 @@
       "iconUrl": "https://raw.githubusercontent.com/tomaszczart/DesktopTVRemote/master/build/icon.ico",
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
-      "remoteReleases": "https://github.com/tomaszczart/DesktopTVRemote",
-      "target": "nsis"
+      "target": "nsis",
+      "publish": "github"
     },
     "nsis": {
       "oneClick": false,
@@ -38,6 +42,6 @@
   },
   "scripts": {
     "start": "electron ./app",
-    "dist": "build --win"
+    "dist": "NODE_ENV=production build --win"
   }
 }
