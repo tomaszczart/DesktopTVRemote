@@ -28,7 +28,7 @@
       "certificateFile": "./certs/signing_key.pfx",
       "certificatePassword": "password",
       "remoteReleases": "https://github.com/tomaszczart/DesktopTVRemote",
-      "target": "nsis"ś
+      "target": "nsis"
     },
     "nsis":{
   "publish": ["github"],
