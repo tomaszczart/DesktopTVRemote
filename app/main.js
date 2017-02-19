@@ -32,13 +32,14 @@ let trayIcon = null;
 
 /******************** UPDATES ********************/
 
-autoUpdater.addListener("update-available", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    dialog.showErrorBox("Auto Updater", `Version ${releaseName} from ${releaseDate} is available.`);
-    shell.openExternal(updateURL);
-});
 autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-    dialog.showErrorBox("A new update is ready to install", `Version ${releaseName} from ${releaseDate} is downloaded and will be automatically installed on Quit`);
+    dialog.showMessageBox({
+        type: 'info',
+        message: `Version ${releaseName} from ${releaseDate} is downloaded and will be automatically installed on Quit`,
+        buttons: ['Yes', 'No']
+    });
 });
+
 autoUpdater.addListener("error", function(error) {
     dialog.showErrorBox("Auto Updater", error.toString());
 });
