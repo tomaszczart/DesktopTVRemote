@@ -43,10 +43,9 @@ function createWindow() {
                 detail: 'If you select later, update will be automatically installed on Quit.',
                 buttons: ['Later', 'Install Now']
             },
-            function(option) {
-                dialog.showErrorBox("Auto Updater", "test");
-                dialog.showErrorBox("Auto Updater", option);
-                switch (option) {
+            function(response) {
+                dialog.showErrorBox("Auto Updater", response + ' test');
+                switch (response) {
                     case 0:
                         break;
                     case 1:
