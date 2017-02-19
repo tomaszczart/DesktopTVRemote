@@ -33,6 +33,26 @@ let trayIcon = null;
 function createWindow() {
     //If window already exists, focus it
     if (!win) {
+
+
+        dialog.showMessageBox({
+            type: 'info',
+            title: i18n.__('NewUpdate'),
+            icon: path.join(__dirname, '/img/app-icons/128x128.png'),
+            message: 'New version is downloaded.',
+            detail: 'If you select later, update will be automatically installed on Quit.',
+            buttons: ['Later', 'Install Now']},
+            option => {
+                dialog.showErrorBox("Auto Updater", option);
+                switch (option) {
+                    case 0:
+                        break;
+                    case 1:
+                        autoUpdater.quitAndInstall();
+                        break;
+                }
+            });
+
         // Create the browser window.
         win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
 
@@ -112,33 +132,14 @@ app.on('ready', () => {
 
     // Handling new updates
     autoUpdater.addListener("update-downloaded", function(event) {
-        dialog.showMessageBox({
-            type: 'info',
-            title: i18n.__('NewUpdate'),
-            icon: path.join(__dirname, '/img/app-icons/128x128.png'),
-            message: 'New version is downloaded.',
-            detail: 'If you select later, update will be automatically installed on Quit.',
-            buttons: ['Later', 'Install Now'],
-            callback: option => {
-                dialog.showErrorBox("Auto Updater", option);
-                switch (option) {
-                    case 0:
-                        break;
-                    case 1:
-                        autoUpdater.quitAndInstall();
-                        break;
-                }
-            }
-        });
+
     });
 
     autoUpdater.addListener("error", function(error) {
         dialog.showErrorBox("Auto Updater", error.toString());
     });
 
-    autoUpdater.checkForUpdates();
-
-    /******************** END UPDATES ********************/
+    autoUpdater.checkForUpdates();//check for update
 
     //  Open window on app start
     createWindow();
