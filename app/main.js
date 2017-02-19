@@ -20,7 +20,7 @@ const path = require('path');
 // Module to get system info
 const os = require('os');
 // Module to update app
-import { autoUpdater } from "electron-updater"
+const autoUpdater = require("electron-updater").autoUpdater;
 
 
 // Keep a global reference of the window object, if you don't, the window will
