@@ -1,7 +1,7 @@
 {
   "name": "desktop_tv_remote",
   "productName": "Desktop TV Remote",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This application allows you to control TV by your computer.",
   "homepage": "https://tomaszczart.github.io/DesktopTVRemote/",
   "author": {
