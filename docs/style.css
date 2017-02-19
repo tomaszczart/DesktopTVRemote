@@ -47,7 +47,6 @@ header {
 
 .download-link{
     color: #fff;
-    width: 180px;
     height: 48px;
     background: #0078d7;
     float: left;
@@ -56,7 +55,7 @@ header {
     margin: 12px;
     line-height: 49px;
     font-size: 21px;
-    font-weight: 300;
+    font-weight: 400;
     text-align: center;
     cursor: pointer;
 }
@@ -75,6 +74,12 @@ header {
     margin: auto;
     position: relative;
     display: inline-block;
+}
+
+.remember{
+    font-size: 10px;
+    font-weight: 300;
+    margin: 2px 0;
 }
 
 #logo{
