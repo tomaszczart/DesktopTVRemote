@@ -130,7 +130,6 @@ app.on('ready', () => {
                 }
             }
         });
-        });
     });
 
     autoUpdater.addListener("error", function(error) {
