@@ -13,8 +13,6 @@ const i18n = mainProcess.i18n;
 const nconf = mainProcess.nconf;
 // Get shell
 const shell = mainProcess.shell;
-// get api address
-const configAPI = mainProcess.configAPI;
 
 let buttons = JSON.parse(JSON.stringify(nconf.get("buttons")));// removing getters and setters from object
 let models = JSON.parse(JSON.stringify(nconf.get("models")));
