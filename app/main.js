@@ -31,28 +31,9 @@ let win = null;
 let trayIcon = null;
 
 function createWindow() {
+    console.log(win);
     //If window already exists, focus it
     if (!win) {
-
-
-        dialog.showMessageBox({
-                type: 'info',
-                title: i18n.__('NewUpdate'),
-                icon: path.join(__dirname, '/img/app-icons/128x128.png'),
-                message: 'New version is downloaded.',
-                detail: 'If you select later, update will be automatically installed on Quit.',
-                buttons: ['Later', 'Install Now']
-            },
-            function(response) {
-                dialog.showErrorBox("Auto Updater", response + ' test');
-                switch (response) {
-                    case 0:
-                        break;
-                    case 1:
-                        autoUpdater.quitAndInstall();
-                        break;
-                }
-            });
 
         // Create the browser window.
         win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
@@ -133,11 +114,17 @@ app.on('ready', () => {
 
     // Handling new updates
     autoUpdater.addListener("update-downloaded", function (event) {
-
-    });
-
-    autoUpdater.addListener("error", function (error) {
-        dialog.showErrorBox("Auto Updater", error.toString());
+        dialog.showMessageBox({
+                type: 'info',
+                title: i18n.__('NewUpdate'),
+                icon: path.join(__dirname, '/img/app-icons/128x128.png'),
+                message: i18n.__('ReadyToInstall'),
+                detail: i18n.__('UpdateLaterInfo'),
+                buttons: [i18n.__('UpdateLater'), i18n.__('UpdateNow')]
+            },
+            response => {
+                if(response == 1) autoUpdater.quitAndInstall();
+            });
     });
 
     autoUpdater.checkForUpdates();//check for update
