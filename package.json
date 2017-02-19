@@ -1,8 +1,7 @@
 {
   "devDependencies": {
     "electron": "^1.6.0",
-    "electron-installer-windows": "^0.2.0",
-    "electron-packager": "^8.5.1"
+    "electron-builder": "^13.10.1"
   },
   "build": {
     "appId": "com.tomaszczart.desktoptvremote",
@@ -37,7 +36,6 @@
   },
   "scripts": {
     "start": "electron ./app",
-    "build": "electron-packager . app --platform win32 --arch x64 --out dist/",
-    "setup": "electron-installer-windows --src dist/app-win32-x64/ --dest dist/installers/"
+    "dist": "build --win"
   }
 }
