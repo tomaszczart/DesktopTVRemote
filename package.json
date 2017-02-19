@@ -42,6 +42,6 @@
   },
   "scripts": {
     "start": "electron ./app",
-    "dist": "NODE_ENV=production build --win"
+    "dist": "NODE_ENV=production && build --win"
   }
 }
