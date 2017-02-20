@@ -148,6 +148,7 @@ app.on('quit', () => {
 app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock button-icon is clicked and there are no other windows open.
+    console.log("CLICKED :D");
     if (win === null) {
         createWindow();
     }
