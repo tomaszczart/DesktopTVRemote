@@ -31,10 +31,10 @@ let win = null;
 let trayIcon = null;
 
 function createWindow() {
-    console.log(win);
+    console.log("OPEN");
     //If window already exists, focus it
     if (!win) {
-
+        console.log("OPEN IF");
         // Create the browser window.
         win = new BrowserWindow({width: 1024, height: 596, backgroundColor: '#644181'});
 
@@ -55,6 +55,7 @@ function createWindow() {
             win = null;
         });
     } else {
+        console.log("OPEN ELSE");
         win.focus();
     }
 }
