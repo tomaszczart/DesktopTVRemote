@@ -22,7 +22,7 @@
 	"UpdateLater": "Później",
 	"UpdateNow": "Instaluj teraz",
 	"ChangePassword": "zapisz hasło",
-	"HowToConnect": "Pomoc w łączeniu",
+	"HowToConnect": "Pomoc",
 	"ConnectionInfo": "Aby połączyć telefon zeskanuj kod lub przepisz dane widoczne powyżej w odpowiednie pola aplikacji na Androida.",
 	"ConnectedClients": "Połączone urządzenia",
 	"Disconnect": "Rozłącz",
@@ -170,5 +170,6 @@
 	"plus": "plus",
 	"vga": "VGA",
 	"eject": "eject",
-	"txt": "txt"
+	"txt": "txt",
+	"NoInternetConnection": "NoInternetConnection"
 }

@@ -1,6 +1,6 @@
 <md-dialog class="remote-creator" aria-label="{{::i18n.__('ConnectionManager')}}">
     <form>
-        <md-toolbar>
+        <md-toolbar class="md-accent">
             <div class="md-toolbar-tools">
                 <h2>{{::i18n.__('RemoteCreator')}}</h2>
                 <span flex></span>
@@ -40,7 +40,7 @@
                 <!-- if there is more then 4 devicetypes show menu, if there is 5 devicetypes show fifth one instead of one device in menu -->
                 <md-radio-button ng-repeat="device in devicetypes | limitTo: (devicetypes.length <= 5 ? 5 : 4)" ng-orderBy="device.name" ng-value="device.name" ng-click="selectedDevicetypeChange(device.name)" class="md-primary">{{::i18n.__("devicetype-" + device.name)}}</md-radio-button>
                 <md-menu ng-if="devicetypes.length > 5" id="more-menu">
-                    <md-button id="more-devices-button" class="md-primary" ng-click="$mdOpenMenu($event)">{{::i18n.__('MoreDevicetypes')}}</md-button>
+                    <md-button id="more-devices-button" class="md-primary" ng-click="$mdMenu.open($event)">{{::i18n.__('MoreDevicetypes')}}</md-button>
                     <md-menu-content width="4">
                         <md-menu-item ng-repeat="device in devicetypes | limitTo: (4 - devicetypes.length)" ng-orderBy="device.id">
                             <md-radio-button ng-click="selectedDevicetypeChange(device.name)" ng-value="device.name" class="md-primary">{{::i18n.__("devicetype-" + device.name)}}</md-radio-button>

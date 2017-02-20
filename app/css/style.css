@@ -366,24 +366,17 @@ remote-button.ng-enter-active {
 }
 
 .remote-button .info .dot {
-    height: 8px;
-    width: 8px;
-    border-radius: 4px;
-    background: rgba(0, 0, 0,.56);
-    margin: 2px;
+    height: 12px;
+    width: 100%;
+    background-image: url('../img/icons/dot.svg');
+    background-repeat: repeat-x;
+    opacity: .56;
     float: right;
+    transition: 120ms opacity ease-in-out;
 }
 
-.remote-button .info .dot:nth-child(even){
-    transition: 309ms transform ease-in-out;
-}
-
-.remote-button .info .dot:nth-child(odd){
-    transition: 190ms transform ease-in-out;
-}
-
-.remote-button .info:hover .dot{
-    transform: scale(1.35);
+.remote-button .info .dot:hover {
+    opacity: .87;
 }
 
 .remote-button .button-icon {

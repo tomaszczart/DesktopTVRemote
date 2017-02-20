@@ -27,7 +27,19 @@ function openUserDefaultBrowser(url) {
 
 // Setting up Angular JS
 const app = angular.module('DTVRApp', ['ngMaterial', 'ngDraggable']).config(($mdThemingProvider) => {
-    $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('purple', {'default': '800'});
+
+    // Extend the red theme with a different color and make the contrast color black instead of white.
+    // For example: raised button text will be black instead of white.
+    let dtvrPurple = $mdThemingProvider.extendPalette('purple', {
+        '500': '#5b3473',
+        '600': '#693d84',
+        'contrastDefaultColor': 'light'
+    });
+
+    // Register the new color palette map with the name <code>neonRed</code>
+    $mdThemingProvider.definePalette('dtvrPurple', dtvrPurple);
+
+    $mdThemingProvider.theme('default').primaryPalette('blue').accentPalette('dtvrPurple', {'default': '500'});
 });
 
 // Main controller of the app
