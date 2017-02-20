@@ -17,6 +17,8 @@
 	"Port": "Port",
 	"Password": "Password",
 	"NewUpdate": "Update",
+    "ReadyToDownload": "New update available",
+    "DownloadNowInfo": "Do you want to download it now?",
 	"ReadyToInstall": "New version is ready to install.",
 	"UpdateLaterInfo": "If you choose to install it later, the update will be automatically installed after quit.",
 	"UpdateLater": "Later",

@@ -83,19 +83,15 @@ app.controller('appCtrl', ($scope, $mdDialog) => {
                     let j;
                     for(let i=1; i <= Object.keys(models).length+1; i++) {
                         j = 0;
+                        //Find first not used number, starting from 1,2,3... to number of models
                         for (let m in models) {
-                            if(models[m].length == i) break;//if exist break and look for other ont
+                            if(models[m] == i) break;//if exist break
                             j++;
                         }
+
                         // if model number is not used, add it to new model
                         if(j == Object.keys(models).length){
-                            /**
-                             * Remote button element uses ng-repeat to draw 'dots', ng-repeat
-                             * requires array so we need to create one and fill with anything
-                             * */
-                            let temp = new Array(i);//make array
-                            temp.fill(null);//fill it with nulls
-                            models[button.model] = temp;
+                            models[button.model] = i;//number of 'dots'
                             break;//end searching
                         }
                     }

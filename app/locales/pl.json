@@ -17,6 +17,8 @@
 	"Port": "Port",
 	"Password": "Hasło",
 	"NewUpdate": "Aktualizacja",
+    "ReadyToDownload": "Dostępna jest nowa aktualizacja",
+    "DownloadNowInfo": "Czy chcesz pobrać ją teraz?",
 	"ReadyToInstall": "Nowa wersja jest gotowa do instalacji.",
 	"UpdateLaterInfo": "Odłożenie instalacji na później spowoduje jej zainstalowanie po wyjściu z aplikacji.",
 	"UpdateLater": "Później",

@@ -108,6 +108,8 @@ app.on('ready', () => {
     shortcuts.registerShortcuts();
 
     // Handling new updates
+    autoUpdater.autoDownload = false;
+
     autoUpdater.addListener("update-downloaded", function (event) {
         dialog.showMessageBox({
                 type: 'info',
@@ -119,6 +121,20 @@ app.on('ready', () => {
             },
             response => {
                 if(response == 1) autoUpdater.quitAndInstall();
+            });
+    });
+
+    autoUpdater.addListener("update-available", function (event) {
+        dialog.showMessageBox({
+                type: 'info',
+                title: i18n.__('NewUpdate'),
+                icon: path.join(__dirname, '/img/app-icons/128x128.png'),
+                message: i18n.__('ReadyToDownload'),
+                detail: i18n.__('DownloadNowInfo'),
+                buttons: ["NO", "YES"]
+            },
+            response => {
+                if(response == 1) autoUpdater.downloadUpdate();
             });
     });
 
@@ -142,7 +158,6 @@ app.on('quit', () => {
 app.on('activate', () => {
     // On macOS it's common to re-create a window in the app when the
     // dock button-icon is clicked and there are no other windows open.
-    console.log("CLICKED :D");
     if (win === null) {
         createWindow();
     }
