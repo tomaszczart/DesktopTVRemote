@@ -20,17 +20,12 @@ header {
 	position: relative;
 }
 
-
 .centerit{
     transform: translateY(-50%) translateX(-50%);
     top: 50%;
     left: 50%;
     position: absolute;
     width: 100%;
-}
-
-.centerit a{
-    display: inline-block;
 }
 
 .name{
@@ -46,16 +41,13 @@ header {
 }
 
 .download-link{
-    color: #fff;
-    height: 48px;
-    background: #0078d7;
-    float: left;
-    border: 1px solid #2196F3;
-    border-radius: 6px;
-    margin: 12px;
-    line-height: 49px;
+    color: #BBDEFB;
+    height: 32px;
+    background: #0D47A1;
+    border: 1px solid #1565C0;
+    line-height: 32px;
     font-size: 21px;
-    font-weight: 400;
+    font-weight: 300;
     text-align: center;
     cursor: pointer;
 }
@@ -66,7 +58,7 @@ header {
 }
 
 .download-link img{
-    margin: 8px;
+    margin: 4px;
     float: left;
 }
 
@@ -74,6 +66,15 @@ header {
     margin: auto;
     position: relative;
     display: inline-block;
+}
+
+.apps a{
+    display: block;
+}
+
+.desktop-apps{
+    float: left;
+    margin: 12px;
 }
 
 .remember{
